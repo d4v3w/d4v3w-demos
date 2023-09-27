@@ -7,7 +7,7 @@
 :root {
   --primary-color: #282c34;
   --primary-color-alt: ghostwhite;
-  
+
   --secondary-color: white;
   --secondary-color-alt: orange;
 
@@ -17,15 +17,15 @@
 
   --primary-btn-color: var(--primary-color);
   --primary-btn-text-color: var(--primary-color-alt);
-  
-  --secondary-btn-color:  var(--secondary-color-alt)
+
+  --secondary-btn-color: var(--secondary-color-alt);
   --secondary-btn-text-color: var(--secondary-color);
 }
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -34,7 +34,11 @@ body {
   font-size: 100%;
 }
 
-h1, h2, h3, h4, p {
+h1,
+h2,
+h3,
+h4,
+p {
   margin-bottom: clamp(0.8rem, 6vmin, 1.5rem);
 }
 
@@ -70,7 +74,7 @@ p {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 

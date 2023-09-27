@@ -1,5 +1,5 @@
-import classnames from 'classnames';
-import styles from './button.module.css';
+import classnames from "classnames";
+import styles from "./button.module.css";
 
 interface ButtonProps {
   id?: string;
@@ -10,7 +10,7 @@ interface ButtonProps {
   /**
    * How large should the button be?
    */
-  size?: 'small' | 'medium' | 'large';
+  size?: "small" | "medium" | "large";
   /**
    * Button contents
    */
@@ -25,13 +25,13 @@ interface ButtonProps {
  * Primary UI component for user interaction
  */
 export const Button = ({
-  id = '',
+  id = "",
   primary = false,
-  size = 'medium',
+  size = "medium",
   label,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? 'primary' : 'secondary';
+  const mode = primary ? "primary" : "secondary";
   return (
     <button
       id={id}
