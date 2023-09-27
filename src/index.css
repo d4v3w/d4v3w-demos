@@ -69,9 +69,16 @@ p {
   font-weight: 400;
 }
 
-
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+*:target {
+  border: 2px solid orange;
+  border-radius: 1rem;
+  opacity: 0.5;
+  background-color: gold;
+  padding: 1rem;
+  color: purple;
 }
