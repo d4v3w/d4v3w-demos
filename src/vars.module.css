@@ -1,0 +1,17 @@
+:root {
+  --primary-color: #282c34;
+  --primary-color-alt: ghostwhite;
+
+  --secondary-color: white;
+  --secondary-color-alt: orange;
+
+  --primary-text-color: lightgray;
+  --primary-text-color-alt: slate;
+  --primary-bg-color: var(--primary-color-alt);
+
+  --primary-btn-color: var(--primary-color);
+  --primary-btn-text-color: var(--primary-color-alt);
+
+  --secondary-btn-color: var(--secondary-color-alt);
+  --secondary-btn-text-color: var(--primary-color);
+}
