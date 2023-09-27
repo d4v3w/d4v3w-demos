@@ -1,0 +1,38 @@
+.button {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  border: 0;
+  border-radius: 0.6rem;
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1;
+  transition: transform 0.5s;
+
+  &:hover {
+    transform: scale(1.04);
+  } 
+}
+.primary {
+  color: var(--primary-btn-color);
+  background-color: var(--primary-btn-text-color);
+}
+.secondary {
+  color: var(--secondary-btn-color);
+  background-color: var(--secondary-btn-text-color);
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;
+}
+.small {
+  padding: 3%;
+  font-size: 1rem;
+  width: min(100px, 50%);
+}
+.medium {
+  padding: 4%;
+  font-size: clamp(1.1rem, 3vw, 1.5rem);
+  width: clamp(10%, 45dvmax, 100%);
+}
+.large {
+  padding: max(5%, 10px);
+  font-size: 1.5rem;
+  width: 100%;
+}
