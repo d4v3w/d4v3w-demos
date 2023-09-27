@@ -1,17 +1,26 @@
 :root {
   --primary-color: #282c34;
-  --primary-color-alt: ghostwhite;
+  --primary-color-alt: orange;
 
-  --secondary-color: white;
-  --secondary-color-alt: orange;
+  --secondary-color: ghostwhite;
+  --secondary-color-alt: var(--primary-color-alt);
 
-  --primary-text-color: lightgray;
+  --primary-text-color: ghostwhite;
   --primary-text-color-alt: slate;
-  --primary-bg-color: var(--primary-color-alt);
+  --primary-bg-color: var(--primary-color);
 
   --primary-btn-color: var(--primary-color);
-  --primary-btn-text-color: var(--primary-color-alt);
+  --primary-btn-text-color: var(--secondary-color);
 
   --secondary-btn-color: var(--secondary-color-alt);
   --secondary-btn-text-color: var(--primary-color);
+
+  --secondary-text-color-alt: var(--secondary-color);
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --primary-color: ghostwhite;
+    --secondary-color: #282c34;
+  }
 }

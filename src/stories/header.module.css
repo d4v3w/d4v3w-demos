@@ -1,31 +1,33 @@
+@import "../vars.module.css";
+
 .header {
   font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  padding: 15px 20px;
+  background-color: #282c34;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding: 0.6rem;
 }
 
-.header svg {
-  display: inline-block;
-  vertical-align: top;
-}
-
-.header h1 {
+.masthead {
   font-weight: 700;
-  font-size: 20px;
-  line-height: 1;
-  margin: 6px 0 6px 10px;
-  display: inline-block;
-  vertical-align: top;
+  font-size: 2rem;
+  line-height: 2.1rem;
+  align-self: center;
+  flex: 1;
 }
 
-.header button + button {
-  margin-left: 10px;
+.login {
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid var(--secondary-text-color-alt);
+  padding: 0.6rem 1.2rem;
+  border-radius: 2rem;
+  height: clamp(6vh, 10%, 10vh);
 }
-
-.header .welcome {
-  font-size: 14px;
-  margin-right: 10px;
+.welcome {
+  margin-right: 1rem;
+  font-size: 1.1rem;
+  color: var(--secondary-text-color-alt);
+  text-shadow: 0.1rem 0.1rem var(--primary-color);
 }

@@ -20,7 +20,10 @@ export const Header = ({
 }: HeaderProps) => (
   <header>
     <div className={styles.header}>
-      <div>
+      <div id="title" className={styles.masthead}>
+        d4v3w Demos
+      </div>
+      <div className={styles.login}>
         {user ? (
           <>
             <span className={styles.welcome}>
