@@ -1,33 +1,70 @@
 @import "../vars.module.css";
 
 .header {
-  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   background-color: #282c34;
   display: flex;
   font-size: calc(10px + 2vmin);
   color: white;
-  padding: 0.6rem;
+  padding: 1rem;
 }
 
 .masthead {
-  font-weight: 700;
-  font-size: 2rem;
-  line-height: 2.1rem;
+  font-family: var(--font-family-alt);
+  font-weight: 500;
+  font-size: 7vmin;
+  line-height: 7vmin;
   align-self: center;
-  flex: 1;
+  flex: 1 0;
+
+  /* Use a linear gradient as the background */
+  background: linear-gradient(
+    to right,
+    red,
+    orange,
+    yellow,
+    green,
+    blue,
+    purple,
+    pink
+  );
+  color: transparent;
+
+  /* Clip the background to the text */
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  /* Make the text transparent */
+  -webkit-text-fill-color: transparent;
+  text-fill-color: transparent;
+  background-size: 400% 100%;
+
+  /* Define the animation duration and direction */
+  animation: rainbow_animation 5s infinite linear alternate;
+}
+
+/* Define the keyframes for the animation */
+@keyframes rainbow_animation {
+  from {
+    background-position: 0% 0%;
+  }
+  to {
+    background-position: 100% 0%;
+  }
 }
 
 .login {
+  align-self: center;
   background: rgba(0, 0, 0, 0.5);
   border: 2px solid var(--secondary-text-color-alt);
-  padding: 0.6rem 1.2rem;
-  border-radius: 2rem;
+  padding: 0.6rem;
+  border-radius: calc(2rem - 0.6rem);
   height: clamp(6vh, 10%, 10vh);
 }
+
 .welcome {
   margin-right: 1rem;
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 3vmin, 1.2rem);
   color: var(--secondary-text-color-alt);
   text-shadow: 0.1rem 0.1rem var(--primary-color);
 }

@@ -1,5 +1,10 @@
 @import "vars.module.css";
 
+html {
+  scroll-behavior: smooth;
+  font-size: 100%;
+}
+
 * {
   margin: unset;
   padding: unset;
@@ -8,51 +13,69 @@
 
 body {
   margin: 0;
-  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: var(--font-family-default);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: var(--primary-color);
-  color: var(--primary-color);
-  font-size: 100%;
+  color: var(--primary-text-color);
+  font-weight: var(--font-weight-medium);
 }
 
 h1,
 h2,
 h3,
-h4,
+h4 {
+  font-family: var(--font-family-alt);
+  margin-bottom: clamp(0.8rem, 3vmin, 1.5rem);
+}
 p {
-  margin-bottom: clamp(0.8rem, 6vmin, 1.5rem);
+  margin-bottom: clamp(0.8rem, 3vmin, 1.2rem);
 }
 
 h1 {
-  font-size: clamp(1.4rem, 6vmin, 4rem);
-  line-height: clamp(1rem, 3vmin, 4rem);
-  color: var(--primary-color-alt);
-  font-weight: 900;
+  font-size: clamp(1.4rem, 10vmin, 4rem);
+  letter-spacing: 0.2rem;
+  line-height: clamp(1.2rem, 8vmin, 4rem);
+  color: var(--secondary-color);
+  font-weight: var(--font-weight-heavy);
 }
 h2 {
   font-size: clamp(1rem, 6vmin, 2.5rem);
   line-height: clamp(1rem, 4vmin, 2.5rem);
-  color: var(--secondary-color-alt);
-  font-weight: 700;
+  color: var(--secondary-color-highlight);
+  font-weight: var(--font-weight-medium);
 }
 h3 {
   font-size: clamp(1rem, 4vmin, 2rem);
   line-height: clamp(1rem, 4vmin, 2rem);
-  color: var(--secondary-color);
-  font-weight: 400;
+  color: var(--secondary-color-alt);
+  font-weight: var(--font-weight-medium);
 }
 h4 {
+  font-family: var(--font-family-headings);
   font-size: clamp(0.9rem, 4vmin, 1.5rem);
   line-height: clamp(1rem, 4vmin, 2rem);
   color: var(--secondary-color);
-  font-weight: 400;
+  font-weight: var(--font-weight-medium);
 }
 p {
-  font-size: clamp(0.8rem, 3vmin, 1.5rem);
-  line-height: clamp(0.8rem, 4vmin, 2rem);
-  color: var(--primary-text-color);
-  font-weight: 400;
+  font-size: clamp(1rem, 3vmin, 1.5rem);
+  letter-spacing: 0.05rem;
+  line-height: clamp(1rem, 5vmin, 2rem);
+}
+a {
+  font-family: var(alt);
+  letter-spacing: 0.05rem;
+  color: var(--secondary-color-alt);
+  text-decoration: none;
+  display: inline-block;
+  transition: transform 0.1s;
+
+  &:hover {
+    text-decoration: underline;
+    transform: scale(1.1);
+    color: var(--font-color-link-hover);
+  }
 }
 
 code {

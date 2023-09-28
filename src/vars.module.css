@@ -1,12 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500&family=Smooch+Sans:wght@300;500&display=swap");
+
 :root {
   --primary-color: #282c34;
   --primary-color-alt: orange;
 
   --secondary-color: ghostwhite;
   --secondary-color-alt: var(--primary-color-alt);
+  --secondary-color-highlight: green;
+  --font-color-link: var(--secondary-color-alt);
+  --font-color-link-hover: yellow;
 
   --primary-text-color: ghostwhite;
-  --primary-text-color-alt: slate;
+  --primary-text-color-alt: red;
   --primary-bg-color: var(--primary-color);
 
   --primary-btn-color: var(--primary-color);
@@ -16,6 +21,13 @@
   --secondary-btn-text-color: var(--primary-color);
 
   --secondary-text-color-alt: var(--secondary-color);
+
+  --font-weight-heavy: 500;
+  --font-weight-medium: 500;
+  --font-weight-normal: 300;
+
+  --font-family-alt: "Pixelify Sans", Helvetica, Arial, sans-serif;
+  --font-family-default: "Smooch Sans", Helvetica, Arial, sans-serif;
 }
 
 @media (prefers-color-scheme: light) {

@@ -20,15 +20,11 @@ export const Header = ({
 }: HeaderProps) => (
   <header>
     <div className={styles.header}>
-      <div id="title" className={styles.masthead}>
-        d4v3w Demos
-      </div>
+      <div className={styles.masthead}>d4v3w Demos</div>
       <div className={styles.login}>
         {user ? (
           <>
-            <span className={styles.welcome}>
-              Welcome, <b>{user.name}</b>!
-            </span>
+            <span className={styles.welcome}>{user.name}!</span>
             <Button size="small" onClick={onLogout} label="Log out" />
           </>
         ) : (

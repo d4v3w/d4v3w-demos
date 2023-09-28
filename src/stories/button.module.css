@@ -1,8 +1,8 @@
 @import "../vars.module.css";
 
 .button {
-  font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-weight: 700;
+  font-family: var(--font-family-alt);
+  font-weight: 500;
   border: 2px solid var(--secondary-text-color-alt);
   border-radius: 1rem;
   cursor: pointer;
@@ -21,8 +21,8 @@
 }
 
 .primary {
-  color: var(--primary-btn-text-color);
-  background-color: var(--primary-btn-color);
+  color: var(--primary-btn-color);
+  background-color: var(--primary-btn-text-color);
 }
 
 .secondary {
@@ -31,16 +31,17 @@
 }
 
 .small {
-  padding: 1rem;
-  font-size: 1rem;
+  padding: 0.5rem;
+  font-size: 0.8rem;
+  font-weight: var(--font-weight-normal);
 }
 
 .medium {
   padding: 1rem 2rem;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
 }
 
 .large {
   padding: 1.5rem 3rem;
-  font-size: 1.5rem;
+  font-size: 1.6rem;
 }
