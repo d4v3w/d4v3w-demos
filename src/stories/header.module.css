@@ -16,6 +16,7 @@
   line-height: 7vmin;
   align-self: center;
   flex: 1 0;
+  user-select: none;
 
   /* Use a linear gradient as the background */
   background: linear-gradient(
