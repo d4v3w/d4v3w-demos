@@ -6,7 +6,12 @@
   gap: 1.5rem;
   margin: 1rem;
   padding: 2rem;
-  overflow: auto hidden;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  max-width: 60vw;
+  scroll-snap-type: x mandatory;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .card {
@@ -15,6 +20,8 @@
   border-style: solid;
   border-color: white;
   border-radius: 0.5rem;
+  flex-shrink: 0;
+  scroll-snap-align: start;
 
   .checkbox {
     display: none;
@@ -25,7 +32,10 @@
   }
 
   .content {
-    min-width: 2.2rem;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0.1rem;
+    text-align: justify;
+    width: 100%;
   }
 }
 
