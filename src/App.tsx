@@ -1,10 +1,15 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Page } from "./components/Page";
+import { QueryPage } from "./components/QueryPage";
 
 function App() {
   return (
-    <>
-      <Page />
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" Component={Page}></Route>
+        <Route path="/cards" Component={QueryPage}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 

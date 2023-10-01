@@ -1,0 +1,36 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  vertical-align: center;
+  justify-content: space-around;
+  gap: 1.5rem;
+  margin: 1rem;
+  padding: 2rem;
+  overflow: auto hidden;
+}
+
+.card {
+  padding: 1rem;
+  border: 1px solid white;
+  border-radius: 0.5em;
+
+  .checkbox {
+    display: none;
+  }
+
+  .title {
+    text-align: center;
+  }
+
+  .content {
+    min-width: 220px;
+  }
+
+  &:hover,
+  .selected {
+    border: 1px solid purple;
+    transform: scale(1.1);
+    z-index: 1;
+    background: green;
+  }
+}
