@@ -3,11 +3,6 @@
 html {
   scroll-behavior: smooth;
   font-size: 100%;
-}
-
-* {
-  margin: unset;
-  padding: unset;
   box-sizing: border-box;
 }
 

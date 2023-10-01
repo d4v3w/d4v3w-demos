@@ -28,6 +28,9 @@
 
   --font-family-alt: "Pixelify Sans", Helvetica, Arial, sans-serif;
   --font-family-default: "Smooch Sans", Helvetica, Arial, sans-serif;
+
+  --border-width: 0.2rem;
+  --border-radius: 0.5rem;
 }
 
 @media (prefers-color-scheme: light) {

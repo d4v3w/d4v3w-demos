@@ -1,8 +1,8 @@
+@import "../global.css";
+
 .wrapper {
   display: flex;
-  align-items: center;
   vertical-align: center;
-  justify-content: space-around;
   gap: 1.5rem;
   margin: 1rem;
   padding: 2rem;
@@ -11,8 +11,10 @@
 
 .card {
   padding: 1rem;
-  border: 1px solid white;
-  border-radius: 0.5em;
+  border-width: var(--border-width);
+  border-style: solid;
+  border-color: white;
+  border-radius: 0.5rem;
 
   .checkbox {
     display: none;
@@ -23,14 +25,16 @@
   }
 
   .content {
-    min-width: 220px;
+    min-width: 2.2rem;
   }
+}
 
-  &:hover,
-  .selected {
-    border: 1px solid purple;
-    transform: scale(1.1);
-    z-index: 1;
-    background: green;
-  }
+.card:hover,
+.card:has(input[type="radio"]:checked) {
+  border-color: darkgoldenrod;
+  transform: scale(1.1);
+}
+.card:has(input[type="radio"]:checked) {
+  border-color: purple;
+  background: green;
 }

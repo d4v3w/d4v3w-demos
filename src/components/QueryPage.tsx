@@ -1,54 +1,47 @@
 import classnames from "classnames";
-import { useId } from "react";
 import { useSearchParams } from "react-router-dom";
 import styles from "./querypage.module.css";
 
-interface CardProps {
-  title: string;
-  content: string;
-  selected?: boolean;
-}
-
-const Card = ({ title, content, selected }: CardProps) => {
+export const QueryPage = () => {
   const [query, setQuery] = useSearchParams({ q: "" });
   const q = query.get("q");
-  console.log(q);
+  const content = "this is some card content";
 
-  const labelId = useId();
-
-  return (
-    <label
-      htmlFor={labelId}
-      className={classnames(styles.card, selected ? styles.selected : null)}
-    >
-      <input
-        id={labelId}
-        type="checkbox"
-        name="card"
-        className={styles.checkbox}
-        onChange={(e) =>
-          setQuery((prev) => {
-            prev.set("q", e.target.value);
-            return prev;
-          })
-        }
-      />
-      <h3 className={styles.title}>{title}</h3>
-      <p className={styles.content}>{content}</p>
-    </label>
-  );
-};
-
-export const QueryPage: React.FC = () => {
-  //const [query, setQuery] = useSearchParams();
+  const cards: string[] = ["card 1", "card 2", "card 3", "card 4", "card 5"];
 
   return (
-    <form className={styles.wrapper}>
-      <Card title="Test Title" content="Some content for the card" />
-      <Card title="Test Title" content="Some content for the card" />
-      <Card title="Test Title" content="Some content for the card" />
-      <Card title="Test Title" content="Some content for the card" />
-      <Card title="Test Title" content="Some content for the card" />
-    </form>
+    <>
+      <form className={styles.wrapper}>
+        {cards.map((item, index) => {
+          const id = `card-${index.toString()}`;
+          return (
+            <label
+              key={id}
+              htmlFor={id}
+              className={classnames(
+                styles.card,
+                id === q ? styles.selected : null,
+              )}
+            >
+              <input
+                id={id}
+                type="radio"
+                name="card"
+                className={styles.checkbox}
+                onChange={(e) =>
+                  setQuery((prev) => {
+                    prev.set("q", e.target.id);
+                    return prev;
+                  })
+                }
+                checked={id == q}
+              />
+              <h3 className={styles.title}>{item}</h3>
+              <p className={styles.content}>{content}</p>
+            </label>
+          );
+        })}
+      </form>
+    </>
   );
 };
