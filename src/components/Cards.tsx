@@ -52,9 +52,7 @@ export const Cards = () => {
 
   const onFocus = (e: React.FocusEvent) => {
     const el = e.target;
-    console.log("focus");
     setFocusedItem(el);
-    console.log(el);
   };
 
   const handleKeyPress = (event: KeyboardEvent) => {
@@ -63,7 +61,6 @@ export const Cards = () => {
     if (SELECT_KEYS.includes(key) && item != null) {
       const dataIndex: string = item.getAttribute("data-radio") || "";
       const index = parseInt(dataIndex);
-      console.log("SELECT", index);
       checkRadioButton(index);
     }
   };
@@ -80,7 +77,6 @@ export const Cards = () => {
   };
 
   useEffect(() => {
-    console.log(`use effect 1`);
     scrollToItem();
   }, [focusedItem]);
 
@@ -125,16 +121,18 @@ export const Cards = () => {
                 autoFocus={isSelected}
                 type="radio"
                 name="card"
-                className={styles.checkbox}
+                className={styles.hide}
                 onChange={onChange}
                 checked={id == q}
               />
               <h3 className={classnames(styles.title, styles.lineClamp)}>
                 {item}
               </h3>
-              <p className={classnames(styles.content, styles.lineClamp)}>
-                {content}
-              </p>
+              <section className={styles.content}>
+                <p className={classnames(styles.text, styles.lineClamp)}>
+                  {content}
+                </p>
+              </section>
             </label>
           );
         })}

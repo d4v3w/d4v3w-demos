@@ -3,14 +3,13 @@
 .wrapper {
   display: flex;
   gap: 1.5rem;
-  margin: 1rem;
-  padding: 2rem;
   overflow-x: scroll;
   scroll-snap-type: x mandatory;
   justify-content: space-between;
   align-items: center;
   height: clamp(300px, 40vw, 800px);
-  width: clamp(600px, 100%, 80vw);
+  width: clamp(600px, 100%, 90vw);
+  margin: 0 auto;
 }
 
 .card {
@@ -22,47 +21,53 @@
   flex: 0 0 250px;
   scroll-snap-align: start;
   scroll-margin: 0;
-
-  .checkbox {
-    display: none;
-  }
-
-  .title {
-    text-align: center;
-  }
-
-  .content {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 0.1rem;
-    text-align: justify;
-    width: 100%;
-  }
-
-  .lineClamp {
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-  }
 }
 
+.card:active,
 .card:hover,
 .card:focus-within,
 .card:has(input[type="radio"]:checked) {
   border-color: darkgoldenrod;
+  animation: scale 200ms ease-in-out forwards;
 }
+
 .card:has(input[type="radio"]:checked) {
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
+
 .card:has(input[type="radio"]:checked) {
   border-color: purple;
   background: green;
 }
 
-$colors: (#ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
-@each $color in $colors {
-  $i: index($colors, $color);
-  .card::nth-child($i) {
-    background-color: $color;
+@keyframes scale {
+  to {
+    transform: scale(1.05);
   }
+}
+
+.hide {
+  position: absolute;
+  left: -99999px;
+}
+
+.title {
+  text-align: center;
+}
+
+.content {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 0.1rem 0.4rem;
+}
+
+.text {
+  text-align: justify;
+  padding: 0;
+}
+
+.lineClamp {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }

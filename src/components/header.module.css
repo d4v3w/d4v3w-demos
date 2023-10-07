@@ -37,7 +37,7 @@
 
   /* Make the text transparent */
   -webkit-text-fill-color: transparent;
-  text-fill-color: transparent;
+  /*text-fill-color: transparent;*/
   background-size: 400% 100%;
 
   /* Define the animation duration and direction */
