@@ -6,10 +6,11 @@
   margin: 1rem;
   padding: 2rem;
   overflow-x: scroll;
-  max-width: 60vw;
   scroll-snap-type: x mandatory;
   justify-content: space-between;
   align-items: center;
+  height: clamp(300px, 40vw, 800px);
+  width: clamp(600px, 100%, 80vw);
 }
 
 .card {
@@ -23,7 +24,7 @@
   scroll-margin: 0;
 
   .checkbox {
-    display: none;
+    display: none;  
   }
 
   .title {
@@ -36,12 +37,21 @@
     text-align: justify;
     width: 100%;
   }
+
+  .lineClamp {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
 
 .card:hover,
-.card:focus,
+.card:focus-within,
 .card:has(input[type="radio"]:checked) {
   border-color: darkgoldenrod;
+}
+.card:has(input[type="radio"]:checked) {
   transform: scale(1.1);
 }
 .card:has(input[type="radio"]:checked) {

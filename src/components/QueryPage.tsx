@@ -1,55 +1,88 @@
 import classnames from "classnames";
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import styles from "./querypage.module.css";
 
 export const QueryPage = () => {
+  const radios = useRef<HTMLInputElement[]>([]);
   const cards: string[] = [
-    "card 1",
-    "card 2",
-    "card 3",
-    "card 4",
-    "card 5",
-    "card 6",
-    "card 7",
-    "card 8",
-    "card 9",
-    "card 10",
+    "Excepteur tempor cupidatat mollit sit consectetur veniam amet eu.",
+    "Aliqua aute eu reprehenderit adipisicing esse sunt id laborum magna sit aliquip.",
+    "Velit magna nostrud non minim fugiat eu aliquip proident elit culpa officia.",
+    "Commodo veniam voluptate incididunt Lorem deserunt ea tempor fugiat ipsum in.",
+    "Anim adipisicing est pariatur aliqua pariatur esse enim occaecat minim dolore nostrud.",
+    "Et non pariatur veniam velit dolore nulla ut anim cupidatat eiusmod.",
+    "Dolor aliqua et ex eiusmod nostrud officia fugiat aliqua est ut.",
+    "Quis dolore laboris eu anim pariatur laborum sint irure ea est aute minim in elit.",
+    "Nostrud qui qui elit eiusmod nulla.",
+    "Non labore velit amet occaecat magna officia aliqua Lorem ex veniam esse magna minim veniam.",
   ];
-  const itemsRef = useRef<HTMLInputElement[]>([]);
+
+  const SELECT_KEYS = ["enter", " "];
+  const [focusedItem, setFocusedItem] = useState<EventTarget & Element>();
 
   const [query, setQuery] = useSearchParams({ q: "" });
   const q: string = query.get("q") || "0";
-  const content = "this is some card content";
+  const content =
+    "Consectetur in quis cupidatat officia ullamco nisi nulla consequat fugiat sunt velit proident quis. Ut veniam fugiat tempor dolore aliquip eiusmod sit labore enim excepteur non. Officia proident nulla enim enim fugiat cillum eiusmod nulla esse. Eu ullamco sit nostrud adipisicing ea Lorem dolor minim voluptate.";
 
-  const scrollItem = (el: (EventTarget & Element) | null) => {
-    if (el == null) return;
-    el.scrollIntoView({
+  const scrollToItem = () => {
+    if (focusedItem == null) return;
+    focusedItem.scrollIntoView({
       behavior: "smooth",
       inline: "center",
     });
   };
 
-  const onChange = (e: React.ChangeEvent) => {
-    const el = e.target;
+  const updateQuery = (id: string) => {
     setQuery((prev) => {
-      prev.set("q", el.id);
+      prev.set("q", id);
       return prev;
     });
-    scrollItem(el);
+  };
+
+  const onChange = (e: React.ChangeEvent) => {
+    const el = e.target;
+    updateQuery(el.id);
+    setFocusedItem(el);
   };
 
   const onFocus = (e: React.FocusEvent) => {
     const el = e.target;
-    scrollItem(el);
+    console.log("focus");
+    setFocusedItem(el);
+    console.log(el);
   };
-  
+
+  const handleKeyPress = (event: KeyboardEvent) => {
+    const key = event.key.toLowerCase();
+    const item = focusedItem as HTMLLabelElement;
+    if (SELECT_KEYS.includes(key) && item != null) {
+      const dataIndex: string = item.getAttribute("data-radio") || "";
+      const index = parseInt(dataIndex);
+      console.log("SELECT", index);
+      radios.current[index].checked = true;
+      updateQuery(`card-${index}`);
+    }
+  };
+
+  useEffect(() => {
+    scrollToItem();
+  }, [query, focusedItem]);
+
+  useEffect(() => {
+    document.addEventListener("keypress", handleKeyPress);
+    return () => {
+      document.removeEventListener("keypress", handleKeyPress);
+    };
+  }, [focusedItem]);
+
   return (
     <>
       <form className={styles.wrapper}>
         {cards.map((item, index) => {
-          const id = `card-${item}`;
-          const isSelected = id === q;
+          const id = `card-${index}`;
+          const isSelected = id.toString() === q;
           return (
             <label
               onFocus={onFocus}
@@ -60,22 +93,27 @@ export const QueryPage = () => {
                 styles.card,
                 isSelected ? styles.selected : null,
               )}
+              data-radio={index}
             >
               <input
                 id={id}
                 autoFocus={isSelected}
-                ref={(el: HTMLInputElement) => {
-                  itemsRef.current[index] = el;
-                  return el;
-                }}
                 type="radio"
                 name="card"
                 className={styles.checkbox}
-                onChange={(e) => onChange(e)}
+                onChange={onChange}
                 checked={id == q}
+                defaultChecked={index === 0}
+                ref={(el) => {
+                  el != null ? radios.current.push(el) : radios.current.push();
+                }}
               />
-              <h3 className={styles.title}>{item}</h3>
-              <p className={styles.content}>{content}</p>
+              <h3 className={classnames(styles.title, styles.lineClamp)}>
+                {item}
+              </h3>
+              <p className={classnames(styles.content, styles.lineClamp)}>
+                {content}
+              </p>
             </label>
           );
         })}
