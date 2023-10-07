@@ -2,12 +2,10 @@
 
 .wrapper {
   display: flex;
-  vertical-align: center;
   gap: 1.5rem;
   margin: 1rem;
   padding: 2rem;
   overflow-x: scroll;
-  overflow-y: hidden;
   max-width: 60vw;
   scroll-snap-type: x mandatory;
   justify-content: space-between;
@@ -20,8 +18,9 @@
   border-style: solid;
   border-color: white;
   border-radius: 0.5rem;
-  flex-shrink: 0;
+  flex: 0 0 250px;
   scroll-snap-align: start;
+  scroll-margin: 0;
 
   .checkbox {
     display: none;
@@ -40,6 +39,7 @@
 }
 
 .card:hover,
+.card:focus,
 .card:has(input[type="radio"]:checked) {
   border-color: darkgoldenrod;
   transform: scale(1.1);

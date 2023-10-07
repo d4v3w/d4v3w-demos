@@ -1,13 +1,9 @@
 import classnames from "classnames";
-import { useEffect } from "react";
+import { useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import styles from "./querypage.module.css";
 
 export const QueryPage = () => {
-  const [query, setQuery] = useSearchParams({ q: "" });
-  const q: string = query.get("q") || "0";
-  const content = "this is some card content";
-
   const cards: string[] = [
     "card 1",
     "card 2",
@@ -20,45 +16,58 @@ export const QueryPage = () => {
     "card 9",
     "card 10",
   ];
+  const itemsRef = useRef<HTMLInputElement[]>([]);
 
-  const scrollItem = (id: string) => {
-    const el = document.getElementById(id);
+  const [query, setQuery] = useSearchParams({ q: "" });
+  const q: string = query.get("q") || "0";
+  const content = "this is some card content";
+
+  const scrollItem = (el: (EventTarget & Element) | null) => {
     if (el == null) return;
     el.scrollIntoView({
       behavior: "smooth",
-      inline: "end",
+      inline: "center",
     });
   };
 
   const onChange = (e: React.ChangeEvent) => {
-    const id: string = e.target.id;
+    const el = e.target;
     setQuery((prev) => {
-      prev.set("q", id);
+      prev.set("q", el.id);
       return prev;
     });
-    scrollItem(id);
+    scrollItem(el);
   };
 
-  useEffect(() => {
-    scrollItem(q);
-  }, []);
-
+  const onFocus = (e: React.FocusEvent) => {
+    const el = e.target;
+    scrollItem(el);
+  };
+  
   return (
     <>
       <form className={styles.wrapper}>
         {cards.map((item, index) => {
-          const id = `${index.toString()}`;
+          const id = `card-${item}`;
+          const isSelected = id === q;
           return (
             <label
-              key={id}
+              onFocus={onFocus}
+              key={item}
               htmlFor={id}
+              tabIndex={index + 1}
               className={classnames(
                 styles.card,
-                id === q ? styles.selected : null,
+                isSelected ? styles.selected : null,
               )}
             >
               <input
                 id={id}
+                autoFocus={isSelected}
+                ref={(el: HTMLInputElement) => {
+                  itemsRef.current[index] = el;
+                  return el;
+                }}
                 type="radio"
                 name="card"
                 className={styles.checkbox}
