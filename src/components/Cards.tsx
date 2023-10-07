@@ -106,7 +106,6 @@ export const Cards = () => {
                 className={styles.checkbox}
                 onChange={onChange}
                 checked={id == q}
-                defaultChecked={index === 0}
                 ref={(el) => {
                   el != null ? radios.current.push(el) : radios.current.push();
                 }}
