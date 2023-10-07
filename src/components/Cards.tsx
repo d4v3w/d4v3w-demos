@@ -1,9 +1,9 @@
 import classnames from "classnames";
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import styles from "./querypage.module.css";
+import styles from "./Cards.module.css";
 
-export const QueryPage = () => {
+export const Cards = () => {
   const radios = useRef<HTMLInputElement[]>([]);
   const cards: string[] = [
     "Excepteur tempor cupidatat mollit sit consectetur veniam amet eu.",
@@ -18,11 +18,13 @@ export const QueryPage = () => {
     "Non labore velit amet occaecat magna officia aliqua Lorem ex veniam esse magna minim veniam.",
   ];
 
+  const URL_STATE_QUERY = "card";
   const SELECT_KEYS = ["enter", " "];
   const [focusedItem, setFocusedItem] = useState<EventTarget & Element>();
 
-  const [query, setQuery] = useSearchParams({ q: "" });
-  const q: string = query.get("q") || "0";
+  const [query, setQuery] = useSearchParams();
+  // Defaults to selecting first item
+  const q = query.get(URL_STATE_QUERY) || "0";
   const content =
     "Consectetur in quis cupidatat officia ullamco nisi nulla consequat fugiat sunt velit proident quis. Ut veniam fugiat tempor dolore aliquip eiusmod sit labore enim excepteur non. Officia proident nulla enim enim fugiat cillum eiusmod nulla esse. Eu ullamco sit nostrud adipisicing ea Lorem dolor minim voluptate.";
 
@@ -36,7 +38,7 @@ export const QueryPage = () => {
 
   const updateQuery = (id: string) => {
     setQuery((prev) => {
-      prev.set("q", id);
+      prev.set(URL_STATE_QUERY, id);
       return prev;
     });
   };
@@ -62,26 +64,27 @@ export const QueryPage = () => {
       const index = parseInt(dataIndex);
       console.log("SELECT", index);
       radios.current[index].checked = true;
-      updateQuery(`card-${index}`);
+      updateQuery(`${index}`);
     }
   };
 
   useEffect(() => {
+    console.log(`use effect`);
     scrollToItem();
-  }, [query, focusedItem]);
+  }, [focusedItem]);
 
   useEffect(() => {
     document.addEventListener("keypress", handleKeyPress);
     return () => {
       document.removeEventListener("keypress", handleKeyPress);
     };
-  }, [focusedItem]);
+  });
 
   return (
     <>
       <form className={styles.wrapper}>
         {cards.map((item, index) => {
-          const id = `card-${index}`;
+          const id = `${index}`;
           const isSelected = id.toString() === q;
           return (
             <label

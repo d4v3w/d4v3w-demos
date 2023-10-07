@@ -24,7 +24,7 @@
   scroll-margin: 0;
 
   .checkbox {
-    display: none;  
+    display: none;
   }
 
   .title {
@@ -57,4 +57,12 @@
 .card:has(input[type="radio"]:checked) {
   border-color: purple;
   background: green;
+}
+
+$colors: (#ff0000, #ff7f00, #ffff00, #00ff00, #0000ff, #4b0082, #8b00ff);
+@each $color in $colors {
+  $i: index($colors, $color);
+  .card::nth-child($i) {
+    background-color: $color;
+  }
 }
