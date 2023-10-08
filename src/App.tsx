@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Cards } from "./components/Cards";
 import { Page } from "./components/Page";
+import { Paralax } from "./components/Paralax";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
       <Routes>
         <Route path="/" Component={Page}></Route>
         <Route path="/cards" Component={Cards}></Route>
+        <Route path="/scroll" Component={Paralax}></Route>
       </Routes>
     </BrowserRouter>
   );
