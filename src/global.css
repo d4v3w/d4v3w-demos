@@ -1,9 +1,12 @@
 @import "vars.module.css";
 
+* {
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
   font-size: 100%;
-  box-sizing: border-box;
 }
 
 body {
