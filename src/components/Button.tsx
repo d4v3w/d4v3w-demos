@@ -8,6 +8,10 @@ interface ButtonProps {
    */
   primary?: boolean;
   /**
+   * Is this a form call to action in a form?
+   */
+  submit?: boolean;
+  /**
    * How large should the button be?
    */
   size?: "small" | "medium" | "large";
@@ -19,6 +23,10 @@ interface ButtonProps {
    * Optional click handler
    */
   onClick?: () => void;
+  /**
+   * Optional ref for the button
+   */
+  ref?: React.RefObject<HTMLButtonElement>;
 }
 
 /**
@@ -27,16 +35,21 @@ interface ButtonProps {
 export const Button = ({
   id = "",
   primary = false,
+  submit = false,
   size = "medium",
   label,
+  ref,
+  onClick = undefined,
   ...props
 }: ButtonProps) => {
   const mode = primary ? "primary" : "secondary";
   return (
     <button
       id={id}
-      type="button"
+      type={submit ? "submit" : "button"}
       className={classnames(styles.button, styles[size], styles[mode])}
+      onClick={onClick}
+      ref={ref}
       {...props}
     >
       {label}
