@@ -85,6 +85,10 @@ nav {
   font-size: var(--font-size-medium);
 }
 
+button {
+  user-select: none;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
