@@ -2,9 +2,28 @@ import { useRef } from "react";
 import { Button } from "./Button";
 import styles from "./Dialog.module.css";
 
-export const Dialog = () => {
+interface DialogProps {
+  id?: string;
+  /**
+   * Is this the principal call to action on the page?
+   */
+  primary?: boolean;
+  /**
+   * How large should the button be?
+   */
+  size?: "small" | "medium" | "large";
+  /**
+   * Button contents
+   */
+  label: string;
+}
+export const Dialog = ({
+  id = "",
+  primary = false,
+  size = "medium",
+  label,
+}: DialogProps) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const dialogCloseRef = useRef<HTMLButtonElement>(null);
 
   const openDialog = () => {
     dialogRef.current?.showModal();
@@ -16,7 +35,13 @@ export const Dialog = () => {
 
   return (
     <>
-      <Button onClick={openDialog} label="Click Me" />
+      <Button
+        onClick={openDialog}
+        id={id}
+        primary={primary}
+        size={size}
+        label={label}
+      />
       <dialog ref={dialogRef} className={styles.dialog}>
         <legend>
           <h3>Dialog</h3>
@@ -25,7 +50,6 @@ export const Dialog = () => {
           <section>
             <p>Anim occaecat aliqua consequat pariatur.</p>
             <Button
-              ref={dialogCloseRef}
               onClick={closeDialog}
               primary={false}
               size="small"

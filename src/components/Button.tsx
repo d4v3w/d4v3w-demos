@@ -12,6 +12,10 @@ interface ButtonProps {
    */
   submit?: boolean;
   /**
+   * Button will trigger a dialog
+   */
+  dialog?: boolean;
+  /**
    * How large should the button be?
    */
   size?: "small" | "medium" | "large";
@@ -23,10 +27,6 @@ interface ButtonProps {
    * Optional click handler
    */
   onClick?: () => void;
-  /**
-   * Optional ref for the button
-   */
-  ref?: React.RefObject<HTMLButtonElement>;
 }
 
 /**
@@ -36,20 +36,20 @@ export const Button = ({
   id = "",
   primary = false,
   submit = false,
+  dialog = false,
   size = "medium",
   label,
-  ref,
   onClick = undefined,
   ...props
 }: ButtonProps) => {
-  const mode = primary ? "primary" : "secondary";
+  let mode = primary ? "primary" : "secondary";
+  mode = dialog ? "dialog" : mode;
   return (
     <button
       id={id}
       type={submit ? "submit" : "button"}
       className={classnames(styles.button, styles[size], styles[mode])}
       onClick={onClick}
-      ref={ref}
       {...props}
     >
       {label}

@@ -2,6 +2,7 @@ import { useState } from "react";
 
 import { Button } from "./Button";
 import { Carousel } from "./Carousel";
+import { Dialog } from "./Dialog";
 import { Header } from "./Header";
 import styles from "./page.module.css";
 
@@ -24,7 +25,9 @@ export const Page = () => {
       <section className={styles.page} id="top">
         <article>
           <h1 id="h1">Welcome!</h1>
-          <h2 id="h2_1">THis is a demo working progress dumping ground</h2>
+          <h2 id="h2_1">This is a demo working progress dumping ground</h2>
+          <Dialog label={"click"} primary />
+          <Button label={"me"} primary={false} />
           <p id="p_1">
             Lorem ipsum dolor sit amet. viverra nibh cras pulvinar mattis nunc
             sed. Faucibus a pellentesque sit amet porttitor eget. Blandit turpis
@@ -52,8 +55,6 @@ export const Page = () => {
             interdum. Donec massa sapien faucibus et molestie. Ornare massa eget
             egestas purus.
           </p>
-          <Button label={"click"} primary />
-          <Button label={"me"} primary={false} />
         </article>
       </section>
     </article>
