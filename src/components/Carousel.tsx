@@ -61,7 +61,6 @@ export const Carousel = () => {
 
   useEffect(() => {
     const currentItem = itemRefs.current[selected];
-    console.log(currentItem);
     currentItem?.scrollIntoView({
       behavior: "smooth",
       block: "start",
