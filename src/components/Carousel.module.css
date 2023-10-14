@@ -101,7 +101,8 @@
 .button {
   border: 5px solid purple;
   border-radius: 5px;
-  width: 100%;
+  width: clamp(100px, 100%, 600px);
+  margin: 0 auto;
   padding: 1rem;
   background: var(--secondary-color-alt);
   font-size: 1.4rem;
@@ -111,13 +112,11 @@
   color: var(--primary-color);
   text-decoration: none;
   transition: transform 0.1s;
+  display: block;
 
   &:hover {
     text-decoration: none;
     transform: scale(1.1);
     color: var(--primary-text-color);
   }
-}
-.button.submit {
-  margin: 0;
 }

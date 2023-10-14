@@ -91,7 +91,8 @@ export const Carousel = () => {
         ))}
       </div>
       <ScrollButton direction={Direction.right} />
-      <form ref={formRef}>
+      <form ref={formRef} action="">
+        <input type="hidden" name={URL_STATE_QUERY} value={selected} />
         <button
           className={classnames(styles.button, styles.submit)}
           title="Select Sint aliqua consectetur"
