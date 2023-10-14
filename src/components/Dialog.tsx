@@ -20,16 +20,20 @@ export const Dialog = () => {
         <Button onClick={openDialog} label="Click Me" />
       </section>
       <dialog ref={dialogRef} className={styles.dialog}>
-        <form method="dialog" className={styles.dialogForm}>
+        <legend>
           <h3>Dialog</h3>
-          <p>Anim occaecat aliqua consequat pariatur.</p>
-          <Button
-            ref={dialogCloseRef}
-            onClick={closeDialog}
-            primary={false}
-            size="small"
-            label="Close"
-          />
+        </legend>
+        <form method="dialog" className={styles.dialogForm}>
+          <section>
+            <p>Anim occaecat aliqua consequat pariatur.</p>
+            <Button
+              ref={dialogCloseRef}
+              onClick={closeDialog}
+              primary={false}
+              size="small"
+              label="Close"
+            />
+          </section>
         </form>
       </dialog>
     </div>
