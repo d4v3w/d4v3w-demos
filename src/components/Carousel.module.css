@@ -66,6 +66,13 @@
   right: 1.5rem;
 }
 
+/* Make radio buttons and check boxes larger if we have an inaccurate pointing device */
+@media (pointer: coarse) {
+  .scroll {
+    display: none;
+  }
+}
+
 .scroller > .item {
   scroll-snap-align: start;
 }
