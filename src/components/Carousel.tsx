@@ -87,11 +87,39 @@ export const Carousel = () => {
                 }
               }}
             >
-              <h3 className={styles.lineClamp2}>Sint aliqua consectetur</h3>
-              <p className={styles.lineClamp3}>
+              <h3 className={styles.lineClampHeading}>
+                Sint aliqua consectetur
+              </h3>
+              <p className={styles.lineClampContent}>
                 Nostrud laboris fugiat incididunt esse nostrud ad.. Labore aute
                 voluptate nulla ad laborum laboris consectetur.
               </p>
+              <ul className={classnames(styles.list, styles.lineClampList)}>
+                <li className={styles.listItem}>
+                  In reprehenderit adipisicing eu deserunt.
+                </li>
+                <li className={styles.listItem}>
+                  In reprehenderit adipisicing eu deserunt.
+                </li>
+                <li className={styles.listItem}>
+                  In reprehenderit adipisicing eu deserunt.
+                </li>
+                <li className={styles.listItem}>
+                  In reprehenderit adipisicing eu deserunt.
+                </li>
+                <li className={styles.listItem}>
+                  In reprehenderit adipisicing eu deserunt.
+                </li>
+                <li className={styles.listItem}>
+                  In reprehenderit adipisicing eu deserunt.
+                </li>
+                <li className={styles.listItem}>
+                  In reprehenderit adipisicing eu deserunt.
+                </li>
+                <li className={styles.listItem}>
+                  In reprehenderit adipisicing eu deserunt.
+                </li>
+              </ul>
               <button
                 className={styles.button}
                 onClick={() => {

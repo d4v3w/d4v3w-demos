@@ -10,7 +10,7 @@
   display: grid;
   gap: 1rem;
   grid-auto-flow: column;
-  grid-auto-columns: 30%;
+  grid-auto-columns: clamp(240px, 30%, 300px);
   overflow: scroll;
   scroll-snap-type: x mandatory;
   scroll-padding: 1rem;
@@ -79,15 +79,27 @@
   border-color: red;
 }
 
-.lineClamp2 {
+.list {
+  padding-inline-start: 1.2rem;
+  list-style-type: square;
+  font-size: var(--font-size-small);
+}
+
+.lineClampHeading {
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 1;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
-.lineClamp3 {
+.lineClampContent {
   display: -webkit-box;
-  -webkit-line-clamp: 3;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.lineClampList {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
@@ -99,7 +111,6 @@
   margin: 0 auto;
   padding: 1rem;
   background: var(--secondary-color-alt);
-  font-size: 1.4rem;
   font-weight: 700;
   font-family: var(--font-family-headings);
   letter-spacing: 0.05rem;
