@@ -1,6 +1,6 @@
 @import "../global.css";
 
 .page {
-  width: 100vw;
-  padding: 2vw;
+  padding: 0 2%;
+  margin: 0;
 }

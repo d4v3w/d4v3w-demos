@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 import { Button } from "./Button";
+import { Carousel } from "./Carousel";
 import { Header } from "./Header";
 import styles from "./page.module.css";
 
@@ -32,6 +33,7 @@ export const Page = () => {
             convallis convallis tellus id inte enim. Leo urna molestie at
             elementum eu.
           </p>
+          <Carousel />
           <h3 id="h3_1">Lorem ipsum dolor sit amet</h3>
           <p id="p_2">
             Lorem ipsum dolor sit amet, consectetur quam elementum. Mi ipsum

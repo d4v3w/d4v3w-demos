@@ -4,7 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import styles from "./Carousel.module.css";
 
 export const Carousel = () => {
-  const URL_STATE_QUERY = "id";
+  const URL_STATE_QUERY = "carousel";
   const [query, setQuery] = useSearchParams();
   const q = query.get(URL_STATE_QUERY);
   const selected: number = q ? parseInt(q) : -1;
@@ -60,11 +60,9 @@ export const Carousel = () => {
   };
 
   useEffect(() => {
-    console.log(itemRefs);
-
     const currentItem = itemRefs.current[selected];
     console.log(currentItem);
-    currentItem.scrollIntoView({
+    currentItem?.scrollIntoView({
       behavior: "smooth",
       block: "start",
       inline: "nearest",
