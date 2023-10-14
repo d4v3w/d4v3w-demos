@@ -126,6 +126,7 @@ export const Carousel = () => {
                   updateQuery(key);
                 }}
                 title="Select Sint aliqua consectetur"
+                tabIndex={key + 1}
               >
                 Select
               </button>
