@@ -18,7 +18,7 @@ export const Header = ({
   onLogout,
   onCreateAccount,
 }: HeaderProps) => (
-  <header>
+  <header id="top">
     <div className={styles.header}>
       <div className={styles.masthead}>d4v3w Demos</div>
       {user ? (

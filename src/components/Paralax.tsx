@@ -1,3 +1,7 @@
+import { Arrow } from "./Arrow";
+import { Button } from "./Button";
+import { Carousel } from "./Carousel";
+import { Dialog } from "./Dialog";
 import { Header } from "./Header";
 import styles from "./Paralax.module.css";
 
@@ -16,25 +20,26 @@ export const Paralax = () => {
           className={styles.foreground}
         />
         <h1 className={styles.title}>Welcome!</h1>
+        <Arrow />
       </header>
-      <section className={styles.section}>
+      <section>
         <Header />
-        <p>
-          Aliquip dolor aliqua consequat commodo esse tempor minim excepteur
-          esse. Cillum enim tempor nisi aliqua et minim dolore. Labore eiusmod
-          ex consectetur sunt excepteur incididunt dolore. Pariatur exercitation
-          deserunt nostrud reprehenderit duis commodo esse fugiat ex eiusmod
-          proident Lorem. Irure officia voluptate eiusmod ullamco consectetur
-          nisi tempor et sit proident magna quis fugiat sunt.
-        </p>
-        <p>
-          Aliquip dolor aliqua consequat commodo esse tempor minim excepteur
-          esse. Cillum enim tempor nisi aliqua et minim dolore. Labore eiusmod
-          ex consectetur sunt excepteur incididunt dolore. Pariatur exercitation
-          deserunt nostrud reprehenderit duis commodo esse fugiat ex eiusmod
-          proident Lorem. Irure officia voluptate eiusmod ullamco consectetur
-          nisi tempor et sit proident magna quis fugiat sunt.
-        </p>
+      </section>
+      <section className={styles.section}>
+        <h2>Carousel Demo</h2>
+        <p>Scroll the carousel below to see the demo in action:</p>
+        <Carousel />
+      </section>
+      <section className={styles.section}>
+        <h2>Dialog Demo</h2>
+        <p>Click the button below to see the dialog demo in action:</p>
+        <Dialog label={"click"} primary />
+      </section>
+      <section className={styles.section}>
+        <h2>Button Demo</h2>
+        <p>Click and hover the buttons below see them in action:</p>
+        <Button label={"click"} primary={true} />
+        <Button label={"me"} primary={false} />
       </section>
     </div>
   );
