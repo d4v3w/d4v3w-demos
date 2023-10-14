@@ -1,5 +1,5 @@
 import classnames from "classnames";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
 import styles from "./Carousel.module.css";
 
@@ -7,18 +7,16 @@ export const Carousel = () => {
   const URL_STATE_QUERY = "id";
   const [query, setQuery] = useSearchParams();
   const q = query.get(URL_STATE_QUERY);
-  const selected: number = q ? parseInt(q) : 0;
+  const selected: number = q ? parseInt(q) : -1;
   const formRef = useRef<HTMLFormElement>(null);
   const MAX_ITEMS = 10;
+  const itemRefs = useRef<HTMLElement[]>([]);
 
   const updateQuery = (e: number) => {
-    setQuery(
-      (prev) => {
-        prev.set(URL_STATE_QUERY, e.toString());
-        return prev;
-      },
-      { replace: true },
-    );
+    setQuery((prev) => {
+      prev.set(URL_STATE_QUERY, e.toString());
+      return prev;
+    });
   };
 
   enum Direction {
@@ -32,7 +30,7 @@ export const Carousel = () => {
 
   const handleScrollClick = (increment: boolean) => {
     let val = selected;
-    if (increment && selected < MAX_ITEMS) {
+    if (increment && selected < MAX_ITEMS - 1) {
       val = selected + 1;
     }
     if (!increment && selected > 0) {
@@ -61,38 +59,62 @@ export const Carousel = () => {
     );
   };
 
+  useEffect(() => {
+    console.log(itemRefs);
+
+    const currentItem = itemRefs.current[selected];
+    console.log(currentItem);
+    currentItem.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+      inline: "nearest",
+    });
+  }, [selected]);
+
   return (
     <div className={styles.container}>
       <ScrollButton direction={Direction.left} />
       <div className={styles.scroller}>
-        {[...Array(MAX_ITEMS).keys()].map((key) => (
-          <section
-            className={classnames(
-              styles.item,
-              key === selected ? styles.selected : null,
-            )}
-            key={key}
-          >
-            <h3 className={styles.lineClamp2}>Sint aliqua consectetur</h3>
-            <p className={styles.lineClamp3}>
-              Nostrud laboris fugiat incididunt esse nostrud ad.. Labore aute
-              voluptate nulla ad laborum laboris consectetur.
-            </p>
-            <button
-              className={styles.button}
-              onClick={() => {
-                updateQuery(key);
+        {[...Array(MAX_ITEMS).keys()].map((key) => {
+          return (
+            <section
+              className={classnames(
+                styles.item,
+                key === selected ? styles.selected : null,
+              )}
+              key={key}
+              ref={(el) => {
+                if (el != null) {
+                  itemRefs.current.push(el);
+                }
               }}
-              title="Select Sint aliqua consectetur"
             >
-              Select
-            </button>
-          </section>
-        ))}
+              <h3 className={styles.lineClamp2}>Sint aliqua consectetur</h3>
+              <p className={styles.lineClamp3}>
+                Nostrud laboris fugiat incididunt esse nostrud ad.. Labore aute
+                voluptate nulla ad laborum laboris consectetur.
+              </p>
+              <button
+                className={styles.button}
+                onClick={() => {
+                  updateQuery(key);
+                }}
+                title="Select Sint aliqua consectetur"
+              >
+                Select
+              </button>
+            </section>
+          );
+        })}
       </div>
       <ScrollButton direction={Direction.right} />
       <form ref={formRef} action="">
-        <input type="hidden" name={URL_STATE_QUERY} value={selected} />
+        <input
+          type="hidden"
+          name={URL_STATE_QUERY}
+          value={selected}
+          required={true}
+        />
         <button
           className={classnames(styles.button, styles.submit)}
           title="Select Sint aliqua consectetur"
