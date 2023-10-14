@@ -15,10 +15,8 @@ export const Dialog = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <section>
-        <Button onClick={openDialog} label="Click Me" />
-      </section>
+    <>
+      <Button onClick={openDialog} label="Click Me" />
       <dialog ref={dialogRef} className={styles.dialog}>
         <legend>
           <h3>Dialog</h3>
@@ -36,6 +34,6 @@ export const Dialog = () => {
           </section>
         </form>
       </dialog>
-    </div>
+    </>
   );
 };
