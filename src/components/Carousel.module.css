@@ -66,14 +66,8 @@
   right: 1.5rem;
 }
 
-.container > .item:first-child {
+.scroller > .item {
   scroll-snap-align: start;
-}
-.container > .item:nth-child(3n) {
-  scroll-snap-align: start;
-}
-.container > .item:last-child() {
-  scroll-snap-align: end;
 }
 
 .item {
