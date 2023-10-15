@@ -3,15 +3,43 @@
   z-index: 1000;
   transform: translateZ(-2px) scale(1.5);
   position: absolute;
-  top: 20vw;
+  top: 70vw;
 }
 
 .link {
   align-items: center;
   padding: 5px;
   text-decoration: none;
+  display: block;
 }
 
 .text {
   color: white;
+  display: block;
+  text-decoration: none;
+}
+
+.arrow {
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  transform: rotate(45deg);
+  opacity: 0.6;
+  transition: opacity 0.5s;
+}
+
+.container:hover .arrow {
+  animation: bounce 0.5s infinite;
+  opacity: 1;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(0) rotate(45deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(45deg);
+  }
 }

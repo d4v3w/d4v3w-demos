@@ -16,6 +16,13 @@ body {
   font-weight: var(--font-weight-medium);
 }
 
+/* Remove scrollbars */
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  background: transparent;
+}
+
 h1,
 h2,
 h3,

@@ -16,8 +16,10 @@
   scroll-padding: 1rem;
   margin-bottom: 2rem;
 }
+
+/* Remove scrollbars */
 .scroller::-webkit-scrollbar {
   width: 0;
   height: 0;
-  background: transparent; /* make scrollbar transparent */
+  background: transparent;
 }
