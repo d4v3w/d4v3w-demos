@@ -9,11 +9,13 @@ enum Direction {
 interface ScrollButtonProps {
   direction?: Direction;
   onClick: (isRight: boolean) => void;
+  disabled?: boolean;
 }
 
 export const ScrollButton = ({
   direction = Direction.left,
   onClick,
+  disabled = false,
 }: ScrollButtonProps) => {
   const isRight: boolean = direction === Direction.right;
   const text = isRight ? ">" : "<";
@@ -28,6 +30,7 @@ export const ScrollButton = ({
         isRight ? styles.right : styles.left,
       )}
       title={title}
+      disabled={disabled}
     >
       {text}
     </button>

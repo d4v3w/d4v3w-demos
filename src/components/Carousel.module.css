@@ -21,7 +21,3 @@
   height: 0;
   background: transparent; /* make scrollbar transparent */
 }
-
-.scroller > .item {
-  scroll-snap-align: start;
-}

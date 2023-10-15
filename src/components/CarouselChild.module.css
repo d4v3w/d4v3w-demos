@@ -2,6 +2,7 @@
   font-size: larger;
   border: 5px solid limegreen;
   padding: 1rem;
+  scroll-snap-align: start;
 }
 
 .item.selected {

@@ -15,10 +15,13 @@ export const Carousel = () => {
   const itemRefs = useRef<HTMLElement[]>([]);
 
   const updateQuery = (e: number) => {
-    setQuery((prev) => {
-      prev.set(URL_STATE_QUERY, e.toString());
-      return prev;
-    });
+    setQuery(
+      (prev) => {
+        prev.set(URL_STATE_QUERY, e.toString());
+        return prev;
+      },
+      { replace: true },
+    );
   };
 
   enum Direction {
@@ -41,8 +44,6 @@ export const Carousel = () => {
     const currentItem = itemRefs.current[selected];
     currentItem?.scrollIntoView({
       behavior: "smooth",
-      block: "start",
-      inline: "nearest",
     });
   }, [selected]);
 
@@ -53,6 +54,7 @@ export const Carousel = () => {
         onClick={() => {
           handleScrollClick(false);
         }}
+        disabled={selected <= 0}
       />
       <div className={styles.scroller}>
         {[...Array(MAX_ITEMS).keys()].map((key) => {
@@ -80,6 +82,7 @@ export const Carousel = () => {
         onClick={() => {
           handleScrollClick(true);
         }}
+        disabled={selected >= MAX_ITEMS - 1}
       />
       <form ref={formRef} action="">
         <input
