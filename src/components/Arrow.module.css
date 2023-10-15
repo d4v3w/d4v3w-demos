@@ -1,19 +1,15 @@
-@import url("https://fonts.googleapis.com/css?family=Oswald");
-
 .container {
   text-align: center;
   z-index: 1000;
-  transform: translateZ(0);
+  transform: translateZ(-2px) scale(1.5);
   position: absolute;
   top: 20vw;
 }
 
 .link {
-  display: inline-flex;
   align-items: center;
   padding: 5px;
   text-decoration: none;
-  transform: rotate(-90deg) translate3d(-300px, 0, 0);
 }
 
 .text {

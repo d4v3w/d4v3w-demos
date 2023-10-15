@@ -8,7 +8,7 @@ import styles from "./Paralax.module.css";
 export const Paralax = () => {
   return (
     <div className={styles.paralaxContext}>
-      <header className={styles.header}>
+      <div className={styles.header}>
         <img
           src="/images/italian_mountains_panarama.jpg"
           alt="mountains"
@@ -21,7 +21,7 @@ export const Paralax = () => {
         />
         <h1 className={styles.title}>Welcome!</h1>
         <Arrow />
-      </header>
+      </div>
       <section>
         <Header />
       </section>

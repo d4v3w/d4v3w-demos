@@ -16,6 +16,10 @@ interface ButtonProps {
    */
   dialog?: boolean;
   /**
+   * Button will be used as a Call to Action
+   */
+  cta?: boolean;
+  /**
    * How large should the button be?
    */
   size?: "small" | "medium" | "large";
@@ -37,6 +41,7 @@ export const Button = ({
   primary = false,
   submit = false,
   dialog = false,
+  cta = false,
   size = "medium",
   label,
   onClick = undefined,
@@ -44,6 +49,7 @@ export const Button = ({
 }: ButtonProps) => {
   let mode = primary ? "primary" : "secondary";
   mode = dialog ? "dialog" : mode;
+  mode = cta ? "cta" : mode;
   return (
     <button
       id={id}

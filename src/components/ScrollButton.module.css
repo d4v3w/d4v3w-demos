@@ -1,0 +1,53 @@
+.scroll {
+  --_scroll-button-size: 32px;
+  border-radius: 50%;
+  font-weight: var(--font-weight-medium);
+  position: absolute;
+  outline: 2px solid rgba(187, 41, 187, 0.5);
+  background: orange;
+  text-align: center;
+  height: var(--_scroll-button-size);
+  width: var(--_scroll-button-size);
+  z-index: 1;
+  top: calc(45% - var(--_scroll-button-size));
+  transition: outline 0.6s linear;
+}
+
+.scroll:hover:after {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  content: " ";
+  display: block;
+  width: calc(var(--_scroll-button-size) + 16px);
+  height: calc(var(--_scroll-button-size) + 16px);
+  border-radius: 50%;
+  border: 0.5rem solid white;
+  opacity: 0.5;
+  border-color: white transparent white transparent;
+  animation: scroll-ring 1.2s linear infinite;
+}
+
+@keyframes scroll-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.scroll.left {
+  left: 1.5rem;
+}
+
+.scroll.right {
+  right: 1.5rem;
+}
+
+/* Make radio buttons and check boxes larger if we have an inaccurate pointing device */
+@media (pointer: coarse) {
+  .scroll {
+    display: none;
+  }
+}

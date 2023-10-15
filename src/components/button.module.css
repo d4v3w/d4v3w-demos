@@ -31,6 +31,28 @@
   background-color: var(--secondary-btn-color);
 }
 
+.cta {
+  border: 5px solid purple;
+  border-radius: 5px;
+  width: clamp(100px, 100%, 600px);
+  margin: 0 auto;
+  padding: 1rem;
+  background: var(--secondary-color-alt);
+  font-weight: 700;
+  font-family: var(--font-family-headings);
+  letter-spacing: 0.05rem;
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: transform 0.1s;
+  display: block;
+
+  &:hover {
+    text-decoration: none;
+    transform: scale(1.1);
+    color: var(--primary-text-color);
+  }
+}
+
 .small {
   padding: 0.5rem;
   font-size: 0.8rem;

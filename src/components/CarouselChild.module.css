@@ -1,0 +1,34 @@
+.item {
+  font-size: larger;
+  border: 5px solid limegreen;
+  padding: 1rem;
+}
+
+.item.selected {
+  border-color: red;
+}
+
+.list {
+  padding-inline-start: 1.2rem;
+  list-style-type: square;
+  font-size: var(--font-size-small);
+}
+
+.lineClampHeading {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.lineClampContent {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.lineClampList {
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

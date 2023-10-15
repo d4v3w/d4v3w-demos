@@ -1,7 +1,9 @@
-import classnames from "classnames";
 import { useEffect, useRef } from "react";
 import { useSearchParams } from "react-router-dom";
+import { Button } from "./Button";
 import styles from "./Carousel.module.css";
+import { CarouselChild } from "./CarouselChild";
+import { ScrollButton } from "./ScrollButton";
 
 export const Carousel = () => {
   const URL_STATE_QUERY = "carousel";
@@ -24,10 +26,6 @@ export const Carousel = () => {
     right,
   }
 
-  interface ScrollButtonProps {
-    direction: Direction;
-  }
-
   const handleScrollClick = (increment: boolean) => {
     let val = selected;
     if (increment && selected < MAX_ITEMS - 1) {
@@ -37,26 +35,6 @@ export const Carousel = () => {
       val = selected - 1;
     }
     updateQuery(val);
-  };
-
-  const ScrollButton = ({ direction = Direction.left }: ScrollButtonProps) => {
-    const isRight: boolean = direction === Direction.right;
-    const text = isRight ? ">" : "<";
-    const title = isRight ? "Scroll Backwards" : "Scroll Forward";
-    return (
-      <button
-        onClick={() => {
-          handleScrollClick(isRight);
-        }}
-        className={classnames(
-          styles.scroll,
-          isRight ? styles.right : styles.left,
-        )}
-        title={title}
-      >
-        {text}
-      </button>
-    );
   };
 
   useEffect(() => {
@@ -70,15 +48,16 @@ export const Carousel = () => {
 
   return (
     <div className={styles.container}>
-      <ScrollButton direction={Direction.left} />
+      <ScrollButton
+        direction={Direction.left}
+        onClick={() => {
+          handleScrollClick(false);
+        }}
+      />
       <div className={styles.scroller}>
         {[...Array(MAX_ITEMS).keys()].map((key) => {
           return (
-            <section
-              className={classnames(
-                styles.item,
-                key === selected ? styles.selected : null,
-              )}
+            <div
               key={key}
               ref={(el) => {
                 if (el != null) {
@@ -86,54 +65,22 @@ export const Carousel = () => {
                 }
               }}
             >
-              <h3 className={styles.lineClampHeading}>
-                Sint aliqua consectetur
-              </h3>
-              <p className={styles.lineClampContent}>
-                Nostrud laboris fugiat incididunt esse nostrud ad.. Labore aute
-                voluptate nulla ad laborum laboris consectetur.
-              </p>
-              <ul className={classnames(styles.list, styles.lineClampList)}>
-                <li className={styles.listItem}>
-                  In reprehenderit adipisicing eu deserunt.
-                </li>
-                <li className={styles.listItem}>
-                  In reprehenderit adipisicing eu deserunt.
-                </li>
-                <li className={styles.listItem}>
-                  In reprehenderit adipisicing eu deserunt.
-                </li>
-                <li className={styles.listItem}>
-                  In reprehenderit adipisicing eu deserunt.
-                </li>
-                <li className={styles.listItem}>
-                  In reprehenderit adipisicing eu deserunt.
-                </li>
-                <li className={styles.listItem}>
-                  In reprehenderit adipisicing eu deserunt.
-                </li>
-                <li className={styles.listItem}>
-                  In reprehenderit adipisicing eu deserunt.
-                </li>
-                <li className={styles.listItem}>
-                  In reprehenderit adipisicing eu deserunt.
-                </li>
-              </ul>
-              <button
-                className={styles.button}
+              <CarouselChild
+                selected={key === selected}
                 onClick={() => {
                   updateQuery(key);
                 }}
-                title="Select Sint aliqua consectetur"
-                tabIndex={key + 1}
-              >
-                Select
-              </button>
-            </section>
+              />
+            </div>
           );
         })}
       </div>
-      <ScrollButton direction={Direction.right} />
+      <ScrollButton
+        direction={Direction.right}
+        onClick={() => {
+          handleScrollClick(true);
+        }}
+      />
       <form ref={formRef} action="">
         <input
           type="hidden"
@@ -141,12 +88,7 @@ export const Carousel = () => {
           value={selected}
           required={true}
         />
-        <button
-          className={classnames(styles.button, styles.submit)}
-          title="Select Sint aliqua consectetur"
-        >
-          Submit
-        </button>
+        <Button submit={true} label="Submit" cta={true} />
       </form>
     </div>
   );
