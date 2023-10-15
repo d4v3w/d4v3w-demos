@@ -65,8 +65,7 @@ h4 {
   color: var(--secondary-color);
   font-weight: var(--font-weight-medium);
 }
-a {
-  font-family: var(alt);
+p a {
   letter-spacing: 0.05rem;
   color: var(--secondary-color-alt);
   text-decoration: none;

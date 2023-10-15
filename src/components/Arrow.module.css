@@ -4,6 +4,8 @@
   transform: translateZ(-2px) scale(1.5);
   position: absolute;
   top: 70vw;
+  cursor: none;
+  transition: transform 0.2s;
 }
 
 .link {
@@ -17,6 +19,7 @@
   color: white;
   display: block;
   text-decoration: none;
+  text-shadow: 0 0 5px #000;
 }
 
 .arrow {
@@ -27,11 +30,16 @@
   transform: rotate(45deg);
   opacity: 0.6;
   transition: opacity 0.5s;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
 }
 
-.container:hover .arrow {
-  animation: bounce 0.5s infinite;
-  opacity: 1;
+.container:hover {
+  transform: scale(1.5);
+
+  .arrow {
+    animation: bounce 0.5s infinite;
+    opacity: 1;
+  }
 }
 
 @keyframes bounce {
