@@ -1,62 +1,69 @@
-import { useState } from "react";
-
+import { Arrow } from "./Arrow";
 import { Button } from "./Button";
 import { Carousel } from "./Carousel";
 import { Dialog } from "./Dialog";
 import { Header } from "./Header";
-import styles from "./page.module.css";
-
-type User = {
-  name: string;
-};
+import styles from "./Page.module.css";
 
 export const Page = () => {
-  const [user, setUser] = useState<User>();
-
   return (
-    <article>
-      <Header
-        user={user}
-        onLogin={() => setUser({ name: "Logged In" })}
-        onLogout={() => setUser(undefined)}
-        onCreateAccount={() => setUser({ name: "Logged In" })}
-      />
+    <div className={styles.paralaxContext}>
+      <div className={styles.header}>
+        <img
+          src="/images/italian_mountains_panarama.jpg"
+          alt="mountains"
+          className={styles.background}
+        />
+        <img
+          src="/images/Trees.png"
+          alt="trees"
+          className={styles.foreground}
+        />
+        <h1 className={styles.title}>Welcome!</h1>
+        <Arrow />
+      </div>
+      <section>
+        <Header />
+      </section>
 
-      <section className={styles.page} id="top">
+      <section className={styles.section} id="top">
         <article>
-          <h1 id="h1">Welcome!</h1>
           <h2 id="h2_1">This is a demo working progress dumping ground</h2>
-          <Dialog label={"click"} primary />
-          <Button label={"me"} primary={false} />
           <p id="p_1">
-            Lorem ipsum dolor sit amet. viverra nibh cras pulvinar mattis nunc
-            sed. Faucibus a pellentesque sit amet porttitor eget. Blandit turpis
-            cursus in hac habitasse. Ullamcorper <a href="">grie ehty</a> eget
-            nulla facilisi etiam dignissim diam quis enim lobortis. Duis
-            convallis convallis tellus id inte enim. Leo urna molestie at
-            elementum eu.
+            Just a little update on this site. It gets updated occasionally with
+            demo code and exaples I have been working on and testing out. If I
+            decide to try a new CSS property, or create a new react component;
+            it will be added here.
           </p>
-          <Carousel />
-          <h3 id="h3_1">Lorem ipsum dolor sit amet</h3>
+          <h3 id="h3_1">Background</h3>
           <p id="p_2">
-            Lorem ipsum dolor sit amet, consectetur quam elementum. Mi ipsum
-            faucibus vitae aliquet nec ullamcorper sit amet. Et magnis dis
-            parturient montes nascetur ridiculus mus mauris. Cursus euismod quis
-            m diam quis enim lobortis. Duis convallis convallis tellus id
-            interdum. Donec massa sapien faucibus et molestie. Ornare massa eget
-            egestas purus.
+            I am a professional Software Developer working on large scale
+            corporate retail and video platforms, primarily focused on front-end
+            user experience with HTML, CSS and JavaScript.
           </p>
-          <h4 id="h4_1">Lorem ipsum dolor sit amet</h4>
+          <h4 id="h4_1">Anything else?</h4>
           <p id="p_2">
-            Lorem ipsum dolor sit amet, consectetur quam elementum. Mi ipsum
-            faucibus vitae aliquet nec ullamcorper sit amet. Et magnis dis
-            parturient montes nascetur ridiculus mus mauris. Cursus euismod quis
-            m diam quis enim lobortis. Duis convallis convallis tellus id
-            interdum. Donec massa sapien faucibus et molestie. Ornare massa eget
-            egestas purus.
+            Not really, but if you want to get in touch I am sure you can find
+            my contact somewhere online.
           </p>
         </article>
       </section>
-    </article>
+      <section className={styles.section}>
+        <h2>Carousel Demo</h2>
+        <p>Scroll the carousel below to see the demo in action:</p>
+        <Carousel />
+      </section>
+      <section className={styles.section}>
+        <h2>Dialog Demo</h2>
+        <p>Click the button below to see the dialog demo in action:</p>
+        <Dialog label={"click"} primary />
+      </section>
+      <section className={styles.section}>
+        <h2>Button Demo</h2>
+        <p>Click and hover the buttons below see them in action:</p>
+        <Button label={"click"} primary={true} />
+        <Button label={"me"} primary={false} />
+      </section>
+    </div>
   );
 };

@@ -3,7 +3,7 @@ import { useSearchParams } from "react-router-dom";
 import { Button } from "./Button";
 import styles from "./Carousel.module.css";
 import { CarouselChild } from "./CarouselChild";
-import { ScrollButton } from "./ScrollButton";
+import { Direction, ScrollButton } from "./ScrollButton";
 
 export const Carousel = () => {
   const URL_STATE_QUERY = "carousel";
@@ -23,11 +23,6 @@ export const Carousel = () => {
       { replace: true },
     );
   };
-
-  enum Direction {
-    left,
-    right,
-  }
 
   const handleScrollClick = (increment: boolean) => {
     let val = selected;
@@ -50,7 +45,7 @@ export const Carousel = () => {
   return (
     <div className={styles.container}>
       <ScrollButton
-        direction={Direction.left}
+        direction={Direction.Left}
         onClick={() => {
           handleScrollClick(false);
         }}
@@ -78,7 +73,7 @@ export const Carousel = () => {
         })}
       </div>
       <ScrollButton
-        direction={Direction.right}
+        direction={Direction.Right}
         onClick={() => {
           handleScrollClick(true);
         }}

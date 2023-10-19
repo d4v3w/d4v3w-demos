@@ -1,23 +1,23 @@
 import classnames from "classnames";
 import styles from "./ScrollButton.module.css";
 
-enum Direction {
-  left,
-  right,
+export enum Direction {
+  Left,
+  Right,
 }
 
-interface ScrollButtonProps {
+export interface ScrollButtonProps {
   direction?: Direction;
   onClick: (isRight: boolean) => void;
   disabled?: boolean;
 }
 
 export const ScrollButton = ({
-  direction = Direction.left,
+  direction = Direction.Left,
   onClick,
   disabled = false,
 }: ScrollButtonProps) => {
-  const isRight: boolean = direction === Direction.right;
+  const isRight: boolean = direction === Direction.Right;
   const text = isRight ? ">" : "<";
   const title = isRight ? "Scroll Forwards" : "Scroll Backwards";
   return (

@@ -1,0 +1,68 @@
+.container {
+  display: grid;
+  grid-column: auto;
+  gap: 1rem;
+  min-height: 400px;
+}
+
+.default {
+  outline: 2px solid green;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas:
+    "empty logo empty empty"
+    "empty title empty empty"
+    "empty description description empty"
+    "empty content content empty"
+    "empty cta empty empty"
+    "empty footnote empty empty"
+    "empty footer footer empty";
+}
+.double {
+  outline: 2px solid orange;
+}
+.triple {
+  outline: 2px solid blue;
+}
+.grid {
+  outline: 2px solid purple;
+}
+
+.title {
+  grid-area: title;
+}
+.logo {
+  grid-area: logo;
+}
+.description {
+  grid-area: description;
+}
+.cta {
+  grid-area: cta;
+}
+.image {
+  grid-area: image;
+}
+.footer {
+  grid-area: footer;
+}
+.content {
+  grid-area: content;
+}
+.footnote {
+  grid-area: footnote;
+}
+.subTitle {
+  grid-area: subTitle;
+}
+.subDescription {
+  grid-area: subDescription;
+}
+.subContent {
+  grid-area: subContent;
+}
+.subImage {
+  grid-area: subImage;
+}
+.empty {
+  grid-area: empty;
+}

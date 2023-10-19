@@ -10,6 +10,7 @@ const config: StorybookConfig = {
     "@storybook/addon-interactions",
     "@storybook/addon-a11y",
     "storybook-css-modules",
+    "storybook-addon-react-router-v6",
   ],
   framework: {
     name: "@storybook/react-webpack5",
@@ -20,4 +21,4 @@ const config: StorybookConfig = {
   },
   staticDirs: ["../public"],
 };
-export default config;
+export default config satisfies StorybookConfig;

@@ -4,15 +4,12 @@ import { Button } from "./Button";
 
 // More on how to set up stories at: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 const meta = {
-  title: "Example/Button",
+  title: "Button",
   component: Button,
   parameters: {
-    // Optional parameter to center the component in the Canvas. More info: https://storybook.js.org/docs/react/configure/story-layout
     layout: "centered",
   },
-  // This component will have an automatically generated Autodocs entry: https://storybook.js.org/docs/react/writing-docs/autodocs
   tags: ["autodocs"],
-  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {},
 } satisfies Meta<typeof Button>;
 
@@ -30,6 +27,27 @@ export const Primary: Story = {
 export const Secondary: Story = {
   args: {
     label: "Button",
+  },
+};
+
+export const Submit: Story = {
+  args: {
+    label: "submit",
+    submit: true,
+  },
+};
+
+export const Dialog: Story = {
+  args: {
+    label: "submit",
+    dialog: true,
+  },
+};
+
+export const CallToAction: Story = {
+  args: {
+    label: "submit",
+    cta: true,
   },
 };
 
