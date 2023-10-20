@@ -1,6 +1,7 @@
 import { Arrow } from "./Arrow";
 import { Button } from "./Button";
 import { Carousel } from "./Carousel";
+import { carouselMockData } from "./Carousel.mocks";
 import { Dialog } from "./Dialog";
 import { Header } from "./Header";
 import styles from "./Page.module.css";
@@ -51,7 +52,7 @@ export const Page = () => {
       <section className={styles.section}>
         <h2>Carousel Demo</h2>
         <p>Scroll the carousel below to see the demo in action:</p>
-        <Carousel />
+        <Carousel items={carouselMockData} />
       </section>
       <section className={styles.section}>
         <h2>Dialog Demo</h2>

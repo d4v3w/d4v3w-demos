@@ -56,6 +56,8 @@ export const Button = ({
       type={submit ? "submit" : "button"}
       className={classnames(styles.button, styles[size], styles[mode])}
       onClick={onClick}
+      data-testId="button"
+      data-button-type={mode}
       {...props}
     >
       {label}

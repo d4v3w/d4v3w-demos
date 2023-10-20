@@ -5,15 +5,22 @@ import styles from "./Carousel.module.css";
 import { CarouselChild } from "./CarouselChild";
 import { Direction, ScrollButton } from "./ScrollButton";
 
-export const Carousel = () => {
+export interface CarouselProps {
+  items?: CarouselChild[];
+}
+
+export const Carousel = ({ items = [] }: CarouselProps) => {
   const URL_STATE_QUERY = "carousel";
   const [query, setQuery] = useSearchParams();
   const q = query.get(URL_STATE_QUERY);
   const selected: number = q ? parseInt(q) : -1;
   const formRef = useRef<HTMLFormElement>(null);
-  const MAX_ITEMS = 10;
+  const MAX_ITEMS = items.length ?? 0;
   const itemRefs = useRef<HTMLElement[]>([]);
 
+  if (MAX_ITEMS <= 0) {
+    return null;
+  }
   const updateQuery = (e: number) => {
     setQuery(
       (prev) => {
@@ -52,7 +59,7 @@ export const Carousel = () => {
         disabled={selected <= 0}
       />
       <div className={styles.scroller}>
-        {[...Array(MAX_ITEMS).keys()].map((key) => {
+        {items.map((item: CarouselChild, key) => {
           return (
             <div
               key={key}
@@ -63,6 +70,7 @@ export const Carousel = () => {
               }}
             >
               <CarouselChild
+                item={item}
                 selected={key === selected}
                 onClick={() => {
                   updateQuery(key);

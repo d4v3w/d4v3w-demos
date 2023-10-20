@@ -31,6 +31,7 @@ export const ScrollButton = ({
       )}
       title={title}
       disabled={disabled}
+      data-testId={`scroll-${isRight ? "right" : "left"}`}
     >
       {text}
     </button>

@@ -41,8 +41,9 @@ export const Dialog = ({
         primary={primary}
         size={size}
         label={label}
+        data-testId="dialog-button"
       />
-      <dialog ref={dialogRef} className={styles.dialog}>
+      <dialog ref={dialogRef} className={styles.dialog} data-testId="dialog">
         <legend>
           <h3>Dialog</h3>
         </legend>
@@ -54,6 +55,7 @@ export const Dialog = ({
               primary={false}
               size="small"
               label="Close"
+              data-testId="dialog-close-button"
             />
           </section>
         </form>

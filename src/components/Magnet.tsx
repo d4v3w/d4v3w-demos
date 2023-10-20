@@ -49,7 +49,11 @@ export const Magnet = ({
 }: MagnetProps) => {
   console.log(type);
   return (
-    <div className={classNames(styles.container, styles[type])}>
+    <div
+      className={classNames(styles.container, styles[type])}
+      data-testId="magnet"
+      data-magnet-type={type}
+    >
       <div className={styles.logo}>
         <picture>
           <img src={content.logo} srcSet={`${content.logo} 320w`} alt="" />

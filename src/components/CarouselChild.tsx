@@ -2,29 +2,37 @@ import classnames from "classnames";
 import { Button } from "./Button";
 import styles from "./CarouselChild.module.css";
 
+export type CarouselChild = {
+  title: string;
+  description: string;
+  content?: string[] | null;
+  image?: string;
+};
+
 interface CarouselChildProps {
+  item: CarouselChild;
   onClick: () => void;
   selected?: boolean;
 }
+
 export const CarouselChild = ({
+  item,
   onClick,
   selected = false,
 }: CarouselChildProps) => (
   <section
     className={classnames(styles.item, selected ? styles.selected : null)}
+    data-testId="carousel-child"
   >
-    <h3 className={styles.lineClampHeading}>Sint aliqua consectetur</h3>
-    <p className={styles.lineClampContent}>
-      Nostrud laboris fugiat incididunt esse nostrud ad.. Labore aute voluptate
-      nulla ad laborum laboris consectetur.
-    </p>
+    <h3 className={styles.lineClampHeading}>{item.title}</h3>
+    <p className={styles.lineClampContent}>{item.description}</p>
+
     <ul className={classnames(styles.list, styles.lineClampList)}>
-      <li className={styles.listItem}>
-        In reprehenderit adipisicing eu deserunt.
-      </li>
-      <li className={styles.listItem}>
-        In reprehenderit adipisicing eu deserunt.
-      </li>
+      {item.content?.map((itemContent, key) => (
+        <li className={styles.listItem} key={key}>
+          {itemContent}
+        </li>
+      ))}
     </ul>
 
     <Button

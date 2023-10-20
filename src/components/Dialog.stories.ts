@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-
+import { userEvent, within } from "@storybook/testing-library";
 import { Dialog } from "./Dialog";
 
 const meta = {
@@ -17,9 +17,22 @@ const meta = {
 export default meta;
 type Story = StoryObj<typeof meta>;
 
-export const DefaultDialog: Story = {
+export const DialogStory: Story = {
   args: {
     label: "Default Dialog",
+  },
+
+  play: async ({ canvasElement }) => {
+    const canvas = within(canvasElement);
+    await userEvent.click(canvas.getByTestId("dialog-button"), {
+      delay: 200,
+    });
+    await userEvent.click(canvas.getByTestId("dialog-close-button"), {
+      delay: 500,
+    });
+    await userEvent.click(canvas.getByTestId("dialog-button"), {
+      delay: 500,
+    });
   },
 };
 export const PrimaryDialog: Story = {
