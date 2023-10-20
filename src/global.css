@@ -3,7 +3,6 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 100%;
 }
 
 body {
@@ -14,6 +13,7 @@ body {
   background: var(--primary-color);
   color: var(--primary-text-color);
   font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-medium);
 }
 
 /* Remove scrollbars */
@@ -30,6 +30,7 @@ h4 {
   user-select: none;
   font-family: var(--font-family-alt);
   margin-bottom: clamp(0.8rem, 3vmin, 1.5rem);
+  line-height: 1;
 }
 p {
   user-select: none;
@@ -40,28 +41,25 @@ p {
 }
 
 h1 {
-  font-size: clamp(1.4rem, 10vmin, 4rem);
+  font-size: var(--font-size-large);
   letter-spacing: 0.2rem;
-  line-height: clamp(1.2rem, 8vmin, 4rem);
   color: var(--secondary-color);
   font-weight: var(--font-weight-heavy);
+  line-height: 80%;
 }
 h2 {
-  font-size: clamp(1rem, 6vmin, 2.5rem);
-  line-height: clamp(1rem, 4vmin, 2.5rem);
+  font-size: var(--font-size-heading);
   color: var(--secondary-color-highlight);
   font-weight: var(--font-weight-medium);
 }
 h3 {
-  font-size: var(--font-size-large);
-  line-height: clamp(1rem, 4vmin, 2rem);
+  font-size: var(--font-size-heading);
   color: var(--secondary-color-alt);
   font-weight: var(--font-weight-medium);
 }
 h4 {
-  font-family: var(--font-family-headings);
-  font-size: clamp(0.9rem, 4vmin, 1.5rem);
-  line-height: clamp(1rem, 4vmin, 2rem);
+  font-family: var(--font-size-heading);
+  font-size: var-(--font-size-heading);
   color: var(--secondary-color);
   font-weight: var(--font-weight-medium);
 }
@@ -88,6 +86,7 @@ nav {
   font-size: var(--font-size-medium);
 }
 
+a,
 button {
   user-select: none;
 }

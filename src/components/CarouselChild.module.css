@@ -1,5 +1,5 @@
 .item {
-  font-size: larger;
+  font-size: var(--font-size-emphasis);
   border: 5px solid limegreen;
   padding: 1rem;
   scroll-snap-align: start;

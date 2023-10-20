@@ -28,21 +28,21 @@ export const Page = () => {
 
       <section className={styles.section} id="top">
         <article>
-          <h2 id="h2_1">This is a demo working progress dumping ground</h2>
-          <p id="p_1">
+          <h2>This is a demo working progress dumping ground</h2>
+          <p>
             Just a little update on this site. It gets updated occasionally with
             demo code and exaples I have been working on and testing out. If I
             decide to try a new CSS property, or create a new react component;
             it will be added here.
           </p>
-          <h3 id="h3_1">Background</h3>
-          <p id="p_2">
+          <h3>Background</h3>
+          <p>
             I am a professional Software Developer working on large scale
             corporate retail and video platforms, primarily focused on front-end
             user experience with HTML, CSS and JavaScript.
           </p>
-          <h4 id="h4_1">Anything else?</h4>
-          <p id="p_2">
+          <h4>Anything else?</h4>
+          <p>
             Not really, but if you want to get in touch I am sure you can find
             my contact somewhere online.
           </p>

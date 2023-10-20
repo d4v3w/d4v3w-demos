@@ -3,7 +3,7 @@
   z-index: 1000;
   transform: translateZ(-2px) scale(1.5);
   position: absolute;
-  top: 70vw;
+  top: 70vh;
   cursor: none;
   transition: transform 0.2s;
 }
@@ -13,6 +13,7 @@
   padding: 5px;
   text-decoration: none;
   display: block;
+  cursor: grabbing;
 }
 
 .text {
@@ -20,6 +21,7 @@
   display: block;
   text-decoration: none;
   text-shadow: 0 0 5px #000;
+  font-size: var(--font-size-small);
 }
 
 .arrow {

@@ -30,9 +30,22 @@
   --font-family-alt: "Pixelify Sans", Helvetica, Arial, sans-serif;
   --font-family-default: "Smooch Sans", Helvetica, Arial, sans-serif;
 
-  --font-size-small: clamp(0.8rem, 3vmin, 1.2rem);
-  --font-size-medium: clamp(1rem, 3vmin, 1.5rem);
-  --font-size-large: clamp(1rem, 4vmin, 2rem);
+  --step--2: clamp(0.7738rem, 1.2695rem + -0.3098vw, 1.2075rem);
+  --step--1: clamp(1.0313rem, 1.3255rem + -0.1839vw, 1.2888rem);
+  --step-0: clamp(1.375rem, 1.375rem + 0vw, 1.375rem);
+  --step-1: clamp(1.4669rem, 1.4146rem + 0.2616vw, 1.8331rem);
+  --step-2: clamp(1.5656rem, 1.4403rem + 0.6268vw, 2.4431rem);
+  --step-3: clamp(1.67rem, 1.4433rem + 1.1335vw, 3.2569rem);
+  --step-4: clamp(1.7825rem, 1.417rem + 1.8277vw, 4.3412rem);
+  --step-5: clamp(1.9019rem, 1.3469rem + 2.775vw, 5.7869rem);
+
+  --font-size-tiny: var(--step--2);
+  --font-size-small: var(--step--1);
+  --font-size-medium: var(--step-0);
+  --font-size-emphasis: var(--step-1);
+  --font-size-heading: var(--step-3);
+  --font-size-large: var(--step-4);
+  --font-size-title: var(--step-5);
 
   --border-width: 0.2rem;
   --border-radius: 0.5rem;
