@@ -1,7 +1,7 @@
 import classnames from "classnames";
 import styles from "./button.module.css";
 
-interface ButtonProps {
+type ButtonProps = {
   id?: string;
   /**
    * Is this the principal call to action on the page?
@@ -31,7 +31,7 @@ interface ButtonProps {
    * Optional click handler
    */
   onClick?: () => void;
-}
+};
 
 /**
  * Primary UI component for user interaction

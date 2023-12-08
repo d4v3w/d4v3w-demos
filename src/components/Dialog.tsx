@@ -1,8 +1,8 @@
-import { useRef } from "react";
+import { ReactNode, useRef } from "react";
 import { Button } from "./Button";
 import styles from "./Dialog.module.css";
 
-interface DialogProps {
+type DialogProps = {
   id?: string;
   /**
    * Is this the principal call to action on the page?
@@ -16,12 +16,17 @@ interface DialogProps {
    * Button contents
    */
   label: string;
-}
+  /**
+   * Content for the dialog
+   */
+  children?: ReactNode;
+};
 export const Dialog = ({
   id = "",
   primary = false,
   size = "medium",
   label,
+  children = [],
 }: DialogProps) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
@@ -45,11 +50,11 @@ export const Dialog = ({
       />
       <dialog ref={dialogRef} className={styles.dialog} data-testId="dialog">
         <legend>
-          <h3>Dialog</h3>
+          <h3>{label}</h3>
         </legend>
         <form method="dialog" className={styles.dialogForm}>
           <section>
-            <p>Anim occaecat aliqua consequat pariatur.</p>
+            <div>{children}</div>
             <Button
               onClick={closeDialog}
               primary={false}

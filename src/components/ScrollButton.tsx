@@ -6,11 +6,11 @@ export enum Direction {
   Right,
 }
 
-export interface ScrollButtonProps {
+export type ScrollButtonProps = {
   direction?: Direction;
   onClick: (isRight: boolean) => void;
   disabled?: boolean;
-}
+};
 
 export const ScrollButton = ({
   direction = Direction.Left,

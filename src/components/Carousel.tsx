@@ -5,15 +5,19 @@ import styles from "./Carousel.module.css";
 import { CarouselChild } from "./CarouselChild";
 import { Direction, ScrollButton } from "./ScrollButton";
 
-export interface CarouselProps {
+export type CarouselProps = {
   items?: CarouselChild[];
-}
+  defaultSelected?: string;
+};
 
-export const Carousel = ({ items = [] }: CarouselProps) => {
+export const Carousel = ({
+  items = [],
+  defaultSelected = "-1",
+}: CarouselProps) => {
   const URL_STATE_QUERY = "carousel";
   const [query, setQuery] = useSearchParams();
   const q = query.get(URL_STATE_QUERY);
-  const selected: number = q ? parseInt(q) : -1;
+  const selected: number = q ? parseInt(q) : parseInt(defaultSelected);
   const formRef = useRef<HTMLFormElement>(null);
   const MAX_ITEMS = items.length ?? 0;
   const itemRefs = useRef<HTMLElement[]>([]);

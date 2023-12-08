@@ -24,11 +24,11 @@ export type MagnetContent = {
   subImage?: string;
 };
 
-export interface MagnetProps {
+export type MagnetProps = {
   type: MagnetType;
   content?: MagnetContent;
   children?: React.ReactNode;
-}
+};
 
 export const Magnet = ({
   type = MagnetType.Default,

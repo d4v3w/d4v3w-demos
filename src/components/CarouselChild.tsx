@@ -9,11 +9,11 @@ export type CarouselChild = {
   image?: string;
 };
 
-interface CarouselChildProps {
+type CarouselChildProps = {
   item: CarouselChild;
   onClick: () => void;
   selected?: boolean;
-}
+};
 
 export const CarouselChild = ({
   item,
