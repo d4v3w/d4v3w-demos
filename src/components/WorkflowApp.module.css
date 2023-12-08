@@ -1,0 +1,27 @@
+.form {
+  margin: 1rem;
+  padding: 2rem;
+  border: 2px solid black;
+  border-radius: 0.5rem;
+  position: relative;
+}
+
+.steps {
+  display: absolute;
+  top: 1rem;
+  right: 1rem;
+  font-weight: 700;
+}
+
+.content {
+  border: none;
+  display: grid;
+  align-content: center;
+}
+
+.controls {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: flex-end;
+  margin: 1rem;
+}

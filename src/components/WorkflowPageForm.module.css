@@ -1,0 +1,6 @@
+.fields {
+  display: grid;
+  justify-content: flex-start;
+  grid-template-columns: auto minmax(auto, 400px);
+  gap: 1rem 0.5rem;
+}
