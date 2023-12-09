@@ -3,6 +3,7 @@ import { Cards } from "./components/Cards";
 import { Carousel } from "./components/Carousel";
 import { Layouts } from "./components/Layouts";
 import { Page } from "./components/Page";
+import { WorkflowApp } from "./components/WorkflowApp";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/cards" Component={Cards}></Route>
         <Route path="/carousel" Component={Carousel}></Route>
         <Route path="/layouts" Component={Layouts}></Route>
+        <Route path="/workflow" Component={WorkflowApp}></Route>
       </Routes>
     </BrowserRouter>
   );
