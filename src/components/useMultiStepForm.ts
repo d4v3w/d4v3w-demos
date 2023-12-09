@@ -5,8 +5,6 @@ import { useSearchParams } from "react-router-dom";
  * useMultiStepForm hook.
  */
 export function useMultiStepForm(steps: ReactElement[]) {
-  //const [currentStepIndex, setCurrentStepIndex] = useState(0);
-
   const URL_STATE_QUERY = "step";
   const [currentStep, setCurrentStep] = useSearchParams();
   const currentStepIndex = currentStep.get(URL_STATE_QUERY);
