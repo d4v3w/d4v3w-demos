@@ -1,29 +1,56 @@
-import { ReactElement, useState } from "react";
+import { ReactElement } from "react";
+import { useSearchParams } from "react-router-dom";
 
+/**
+ * useMultiStepForm hook.
+ */
 export function useMultiStepForm(steps: ReactElement[]) {
-  const [currentStepIndex, setCurrentStepIndex] = useState(0);
+  //const [currentStepIndex, setCurrentStepIndex] = useState(0);
 
+  const URL_STATE_QUERY = "step";
+  const [currentStep, setCurrentStep] = useSearchParams();
+  const currentStepIndex = currentStep.get(URL_STATE_QUERY);
+  const selected: number = currentStepIndex ? parseInt(currentStepIndex) : 0;
+
+  const updateQuery = (e: number) => {
+    setCurrentStep(
+      (prev) => {
+        prev.set(URL_STATE_QUERY, e.toString());
+        return prev;
+      },
+      { replace: true },
+    );
+  };
+
+  /**
+   * Go to next step in the workflow.
+   */
   function next() {
-    setCurrentStepIndex((i) => {
-      if (i >= steps.length) return steps.length;
-      return i + 1;
-    });
+    if (selected >= steps.length) updateQuery(steps.length);
+    updateQuery(selected + 1);
   }
+
+  /**
+   * Go to previous step in the workflow.
+   */
   function back() {
-    setCurrentStepIndex((i) => {
-      if (i <= 0) return 0;
-      return i - 1;
-    });
+    if (selected <= 0) updateQuery(0);
+    updateQuery(selected - 1);
   }
+
+  /**
+   * Go to a specfic step in the workflow.
+   * @param {number} index - The index of the step to go to.
+   */
   function goTo(index: number) {
-    setCurrentStepIndex(index);
+    updateQuery(index);
   }
 
   return {
-    currentStepIndex,
-    step: steps[currentStepIndex],
-    isFirstStep: currentStepIndex <= 0,
-    isLastStep: currentStepIndex === steps.length - 1,
+    currentStepIndex: selected,
+    step: steps[selected],
+    isFirstStep: selected <= 0,
+    isLastStep: selected === steps.length - 1,
     next,
     back,
     goTo,
