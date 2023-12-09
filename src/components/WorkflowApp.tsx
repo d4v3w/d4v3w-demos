@@ -49,9 +49,9 @@ export function WorkflowApp() {
   }
 
   return (
-    <div>
+    <div className={styles.workflow}>
       <form className={styles.form} onSubmit={onSubmit}>
-        <fieldset>
+        <fieldset className={styles.wrapper}>
           <legend className={styles.steps}>
             {currentStepIndex + 1}/{steps.length}
           </legend>

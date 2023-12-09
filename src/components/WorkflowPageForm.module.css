@@ -3,4 +3,10 @@
   justify-content: flex-start;
   grid-template-columns: auto minmax(auto, 400px);
   gap: 1rem 0.5rem;
+
+  input {
+    border-radius: 1rem;
+    padding: 0.2rem 1rem 0.1rem;
+    font-weight: 700;
+  }
 }

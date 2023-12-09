@@ -1,0 +1,10 @@
+.acceptance {
+  border-radius: 1rem;
+  border: 1px solid black;
+  margin: 1rem 0;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2rem;
+  align-items: flex-end;
+}

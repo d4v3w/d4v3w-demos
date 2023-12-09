@@ -1,9 +1,17 @@
+.workflow {
+  margin: 1rem;
+}
+
 .form {
   margin: 1rem;
   padding: 2rem;
   border: 2px solid black;
   border-radius: 0.5rem;
   position: relative;
+}
+
+.wrapper {
+  border-radius: inherit;
 }
 
 .steps {

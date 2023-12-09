@@ -1,4 +1,5 @@
 import { Dialog } from "./Dialog";
+import styles from "./WorkflowPageTable.module.css";
 import { WorkflowStep, WorkflowStepType } from "./WorkflowStep";
 
 type Data = {
@@ -28,7 +29,7 @@ export function WorkflowPageTable({ terms, updateFields }: Props) {
           <td>FOUR</td>
         </tr>
       </table>
-      <fieldset>
+      <fieldset className={styles.acceptance}>
         <legend>Agree to Terms</legend>
         <Dialog label="Read the terms" id="terms" primary size="small">
           <h2>Terms and Conditions</h2>
