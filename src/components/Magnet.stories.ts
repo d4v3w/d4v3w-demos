@@ -18,48 +18,53 @@ type Story = StoryObj<typeof meta>;
 export const DefaultMagnet: Story = {
   args: {
     type: MagnetType.Default,
-    content: {
-      logo: "",
-      title: "Title",
-      description: "Description Text",
-      content:
-        "Consequat commodo ad aliquip sint irure consequat do excepteur in.",
-    },
+    logo: "https://picsum.photos/seed/picsum/100/30",
+    title: "Title",
+    description: "Description Text",
+    content:
+      "Consequat commodo ad aliquip sint irure consequat do excepteur in.",
+    footer: "Fugiat sit ea cillum reprehenderit veniam.",
   },
 };
 export const DoubleMagnet: Story = {
   args: {
     type: MagnetType.Double,
-    content: {
-      logo: "",
-      title: "Title",
-      description: "Description Text",
-      content:
-        "Consequat commodo ad aliquip sint irure consequat do excepteur in.",
-    },
+    logo: "https://picsum.photos/seed/picsum/100/30",
+    title: "Title",
+    description: "Description Text",
+    content:
+      "Consequat commodo ad aliquip sint irure consequat do excepteur in.",
+    footer: "Fugiat sit ea cillum reprehenderit veniam.",
   },
 };
 export const TripleMagnet: Story = {
   args: {
     type: MagnetType.Triple,
-    content: {
-      logo: "",
-      title: "Title",
-      description: "Description Text",
-      content:
-        "Consequat commodo ad aliquip sint irure consequat do excepteur in.",
-    },
+    logo: "https://picsum.photos/seed/picsum/100/30",
+    title: "Title",
+    description: "Description Text",
+    content:
+      "Consequat commodo ad aliquip sint irure consequat do excepteur in.",
+    footer: "Fugiat sit ea cillum reprehenderit veniam.",
+    image: "https://picsum.photos/id/870/200/300?grayscale&blur=2",
+    link: "https://www.google.com/images",
+    cta: "Click Me",
+    footnote: "Foot in your note!",
+    subImage: [
+      "https://picsum.photos/seed/picsum/200/100.webp",
+      "https://picsum.photos/seed/picsum/200/100.webp",
+      "https://picsum.photos/seed/picsum/200/100.webp",
+    ],
   },
 };
 export const GridMagnet: Story = {
   args: {
     type: MagnetType.Grid,
-    content: {
-      logo: "",
-      title: "Title",
-      description: "Description Text",
-      content:
-        "Consequat commodo ad aliquip sint irure consequat do excepteur in.",
-    },
+    logo: "https://picsum.photos/seed/picsum/100/30",
+    title: "Title",
+    description: "Description Text",
+    content:
+      "Consequat commodo ad aliquip sint irure consequat do excepteur in.",
+    footer: "Fugiat sit ea cillum reprehenderit veniam.",
   },
 };

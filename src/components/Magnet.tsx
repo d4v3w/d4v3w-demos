@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { ReactNode } from "react";
 import { Button } from "./Button";
 import styles from "./Magnet.module.css";
 
@@ -9,45 +10,77 @@ export enum MagnetType {
   Grid = "grid",
 }
 
-export type MagnetContent = {
+export type MagnetDefault = {
+  type: MagnetType.Default;
+  title: string;
+  description: string;
+  content: string;
+  logo: string;
+  footer: string;
+  children?: ReactNode;
+};
+
+export type MagnetDouble = {
+  type: MagnetType.Double;
+  title: string;
+  description: string;
+  content: string;
+  logo: string;
+  footer: string;
+  children?: ReactNode;
+
+  subTitle?: string;
+  subDescription?: string;
+};
+
+export type MagnetTriple = {
+  type: MagnetType.Triple;
+  title: string;
+  description: string;
+  content: string;
+  logo: string;
+  footer: string;
+  children?: ReactNode;
+
+  image: string;
+  link: string;
+  cta: string;
+  footnote: string;
+  subImage: string[];
+};
+
+export type MagnetGrid = {
+  type: MagnetType.Grid;
   logo: string;
   title: string;
   description: string;
   content: string;
-  image?: string;
-  link?: string;
-  cta?: string;
-  footnote?: string;
-  footer?: string;
-  subTitle?: string;
-  subDescription?: string;
-  subImage?: string;
+  footer: string;
+  children?: ReactNode;
 };
 
-export type MagnetProps = {
-  type: MagnetType;
-  content?: MagnetContent;
-  children?: React.ReactNode;
-};
+export type MagnetProps =
+  | MagnetDefault
+  | MagnetDouble
+  | MagnetTriple
+  | MagnetGrid;
 
-export const Magnet = ({
-  type = MagnetType.Default,
-  content = {
-    logo: "test.png",
-    title: "Test",
-    image: "test.png",
-    description:
-      "Duis cupidatat nulla exercitation eu incididunt occaecat aliqua laborum proident.",
-    link: "",
-    cta: "",
-    footnote: "",
-    footer: "&copy; Dave owns this 2023",
-    subTitle: "",
-    subDescription: "",
-    content: "",
-  },
-}: MagnetProps) => {
-  console.log(type);
+export const Magnet = (magnet: MagnetProps) => {
+  const { type, logo, title, description } = { ...magnet };
+
+  const MagnetComponent = (magnet: MagnetProps) => {
+    switch (magnet.type) {
+      case MagnetType.Double:
+        return <MagnetDoubleLayout {...magnet} />;
+      case MagnetType.Triple:
+        return <MagnetTripleLayout {...magnet} />;
+      case MagnetType.Grid:
+        return <MagnetGridLayout {...magnet} />;
+      default:
+        return <MagnetDefaultLayout {...magnet} />;
+    }
+  };
+
   return (
     <div
       className={classNames(styles.container, styles[type])}
@@ -56,27 +89,79 @@ export const Magnet = ({
     >
       <div className={styles.logo}>
         <picture>
-          <img src={content.logo} srcSet={`${content.logo} 320w`} alt="" />
+          <img src={logo} srcSet={`${logo} 320w`} alt="" />
         </picture>
       </div>
-      <div className={styles.title}>{content.title}</div>
-      <div className={styles.description}>{content.description}</div>
-      <div className={styles.image}>
-        <picture>
-          <img src={content.image} srcSet={`${content.image} 320w`} alt="" />
-        </picture>
-      </div>
-      <div className={styles.content}>{content.content}</div>
-      <div className={styles.cta}>
-        <Button label={content.cta || "Click"} />
-      </div>
-      <div className={styles.footnote}>{content.footnote}</div>
-      <div className={styles.subTitle}>{content.subTitle}</div>
-      <div className={styles.subDescription}>{content.subDescription}</div>
-      <div className={styles.subContent}>{content.content}</div>
-      <div className={styles.subImage}>{content.subImage}</div>
-      <div className={styles.footer}>{content.footer}</div>
-      <div className={styles.empty}></div>
+      <h2 className={styles.title}>{title}</h2>
+      <div className={styles.description}>{description}</div>
+      <MagnetComponent {...magnet} />
     </div>
+  );
+};
+
+const MagnetDefaultLayout = ({ content, children }: MagnetDefault) => {
+  return (
+    <>
+      <div className={styles.content}>{content}</div>
+      {children}
+    </>
+  );
+};
+
+const MagnetDoubleLayout = ({
+  content,
+  children,
+  subTitle,
+  subDescription,
+  footer,
+}: MagnetDouble) => {
+  return (
+    <>
+      <div className={styles.content}>{content}</div>
+      {children}
+      <div className={styles.subTitle}>{subTitle}</div>
+      <div className={styles.subDescription}>{subDescription}</div>
+      <div className={styles.footer}>{footer}</div>
+    </>
+  );
+};
+
+const MagnetTripleLayout = ({
+  content,
+  cta,
+  footnote,
+  subImage,
+  children,
+  footer,
+}: MagnetTriple) => {
+  return (
+    <>
+      <div className={styles.content}>{content}</div>
+      <div className={styles.cta}>
+        <Button label={cta || "Click"} />
+      </div>
+      <div className={styles.footnote}>{footnote}</div>
+      {subImage.map((image) => {
+        return (
+          <div className={styles.subImage} key="index">
+            <picture>
+              <img src={image} srcSet={`${image} 320w`} alt="" />
+            </picture>
+          </div>
+        );
+      })}
+      {children}
+      <div className={styles.footer}>{footer}</div>
+    </>
+  );
+};
+
+const MagnetGridLayout = ({ content, children, footer }: MagnetGrid) => {
+  return (
+    <>
+      <div className={styles.content}>{content}</div>
+      {children}
+      <div className={styles.footer}>{footer}</div>
+    </>
   );
 };

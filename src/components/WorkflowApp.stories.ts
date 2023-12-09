@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/react";
 import { WorkflowApp } from "./WorkflowApp";
 
 const meta = {
-  title: "WorkflowApp",
+  title: "Workflow/App",
   component: WorkflowApp,
   parameters: {
     layout: "centered",
